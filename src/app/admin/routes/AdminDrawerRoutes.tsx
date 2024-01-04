@@ -3,7 +3,7 @@ import Squares2X2Icon from '@heroicons/react/24/outline/Squares2X2Icon'
 import ArrowRightOnRectangleIcon from '@heroicons/react/24/outline/ArrowRightOnRectangleIcon'
 import DocumentDuplicateIcon from '@heroicons/react/24/outline/DocumentDuplicateIcon'
 import { routes } from '../../../common/routes/routes';
-import { TRANSLATE } from '../../../common/constants/TranslateConstants';
+import { TRANSLATE } from '../../../common/constants/translateConstants';
 
 const iconClasses = `h-6 w-6`
 const submenuIconClasses = `h-5 w-5`

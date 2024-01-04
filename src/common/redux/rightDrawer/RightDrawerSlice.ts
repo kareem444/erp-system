@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { REDUX } from '../../constants/ReduxConstants'
+import { REDUX } from '../../constants/reduxConstants'
 import { RightDrawerInitialState } from './RightDrawerState'
 import { closeRightDrawer, openRightDrawer } from './RightDrawerActions'
 

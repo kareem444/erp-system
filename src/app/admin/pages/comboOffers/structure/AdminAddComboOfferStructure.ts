@@ -2,7 +2,7 @@ import {
     IDefaultValuesProperties,
     IFormComponentProperties
 } from 'src/common/components/FormComponent'
-import { TRANSLATE } from 'src/common/constants/TranslateConstants'
+import { TRANSLATE } from 'src/common/constants/translateConstants'
 import { useTranslate } from 'src/common/hooks/useTranslate'
 import { ComboOfferInputsStructure } from './AdminComboOfferInputsStructure'
 

@@ -1,6 +1,6 @@
 import { ITableContent } from '../../../../../common/components/TableComponent'
 import { AdminDetailsPageContainer } from '../../../containers/AdminDetailsPageContainer'
-import { PAYMENTS_WAY_SRC } from 'src/common/constants/SrcConstants'
+import { PAYMENTS_WAY_SRC } from 'src/common/constants/srcConstants'
 
 const tableContent: ITableContent = {
     header: ["Avatar", 'Name'],

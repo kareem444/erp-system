@@ -1,4 +1,4 @@
-import { IMAGE_SRC } from '../../../common/constants/SrcConstants'
+import { IMAGE_SRC } from '../../../common/constants/srcConstants'
 import { Link } from 'react-router-dom'
 import SwitchThemeComponent from '../../../common/components/SwitchTheme'
 import SwitchLanguageComponent from '../../../common/components/SwitchLanguageComponent'

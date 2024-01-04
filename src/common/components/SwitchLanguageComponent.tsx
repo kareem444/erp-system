@@ -1,4 +1,4 @@
-import { TRANSLATE } from '../constants/TranslateConstants'
+import { TRANSLATE } from '../constants/translateConstants'
 import { useTranslate } from '../hooks/useTranslate'
 
 export default function SwitchLanguageComponent() {

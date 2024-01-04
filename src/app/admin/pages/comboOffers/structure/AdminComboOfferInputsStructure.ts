@@ -1,5 +1,5 @@
 import { InputComponentProps } from 'src/common/components/InputComponent'
-import { TRANSLATE } from 'src/common/constants/TranslateConstants'
+import { TRANSLATE } from 'src/common/constants/translateConstants'
 import { useTranslate } from 'src/common/hooks/useTranslate'
 
 export const ComboOfferInputsStructure = (): InputComponentProps[] => {

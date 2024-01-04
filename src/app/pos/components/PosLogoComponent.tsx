@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { IMAGE_SRC } from 'src/common/constants/SrcConstants';
+import { IMAGE_SRC } from 'src/common/constants/srcConstants';
 
 interface PosLogoComponentProps {
     path: string;

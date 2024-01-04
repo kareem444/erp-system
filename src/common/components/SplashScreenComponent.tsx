@@ -1,4 +1,4 @@
-import { IMAGE_SRC } from "../constants/SrcConstants"
+import { IMAGE_SRC } from "../constants/srcConstants"
 
 function SplashScreenComponent(){
     return(

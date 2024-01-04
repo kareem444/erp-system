@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ComboOfferUiInitialState } from './ComboOfferUiState'
-import { REDUX } from 'src/common/constants/ReduxConstants'
+import { REDUX } from 'src/common/constants/reduxConstants'
 import {
     addComboOfferProductToAdd,
     addComboOfferProductToEdit,

@@ -1,6 +1,6 @@
 import AuthContainer from '../../../containers/AuthContainer'
 import { useTranslate } from '../../../../../common/hooks/useTranslate'
-import { TRANSLATE } from '../../../../../common/constants/TranslateConstants'
+import { TRANSLATE } from '../../../../../common/constants/translateConstants'
 import { routes } from '../../../../../common/routes/routes'
 import { useState } from 'react'
 import OtpComponent from '../../../components/AuthOtpComponent'

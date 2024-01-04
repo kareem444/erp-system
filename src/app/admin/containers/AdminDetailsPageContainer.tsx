@@ -7,7 +7,7 @@ import {
 } from '../../../common/components/TableComponent'
 import usePageTitle from '../../../common/hooks/usePageTitle'
 import { useTranslate } from '../../../common/hooks/useTranslate'
-import { TRANSLATE } from '../../../common/constants/TranslateConstants'
+import { TRANSLATE } from '../../../common/constants/translateConstants'
 
 interface IAdminDetailsPageContainerProps {
     tableContent: ITableContent

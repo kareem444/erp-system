@@ -1,4 +1,4 @@
-import { PAYMENTS_WAY_SRC } from 'src/common/constants/SrcConstants';
+import { PAYMENTS_WAY_SRC } from 'src/common/constants/srcConstants';
 
 const PosSubmitPaymentModalComponent = () => {
     return (

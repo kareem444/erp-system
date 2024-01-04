@@ -3,7 +3,7 @@ import {
     IFormComponentProperties
 } from 'src/common/components/FormComponent'
 import { InputComponentProps } from 'src/common/components/InputComponent'
-import { TRANSLATE } from 'src/common/constants/TranslateConstants'
+import { TRANSLATE } from 'src/common/constants/translateConstants'
 import { translateOptions, useTranslate } from 'src/common/hooks/useTranslate'
 
 /* #region add group form items Structure */

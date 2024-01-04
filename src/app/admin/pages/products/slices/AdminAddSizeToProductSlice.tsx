@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import AdminButtonComponent from 'src/app/admin/components/AdminButtonContainer'
-import { TRANSLATE } from 'src/common/constants/TranslateConstants'
+import { TRANSLATE } from 'src/common/constants/translateConstants'
 import { useTranslate } from 'src/common/hooks/useTranslate'
 
 interface AdminAddSizeToProductSliceProps {

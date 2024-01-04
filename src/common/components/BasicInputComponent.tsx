@@ -1,6 +1,6 @@
 import { FC, HTMLInputTypeAttribute } from 'react'
 import { useTranslate } from '../hooks/useTranslate'
-import { TRANSLATE } from '../constants/TranslateConstants'
+import { TRANSLATE } from '../constants/translateConstants'
 import DropDownSearchComponent, {
     DropDownSearchComponentProps, IDropDownSearchItemProperties
 } from './DropDownSearchComponent'

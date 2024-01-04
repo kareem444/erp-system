@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ProductUiInitialState } from './ProductUiState'
-import { REDUX } from 'src/common/constants/ReduxConstants'
+import { REDUX } from 'src/common/constants/reduxConstants'
 import {
     addProductAddition,
     addProductSize,

@@ -1,6 +1,6 @@
 import FormComponent from 'src/common/components/FormComponent'
 import CollapseComponent from '../../../../../common/components/CollapseComponent'
-import { TRANSLATE } from '../../../../../common/constants/TranslateConstants'
+import { TRANSLATE } from '../../../../../common/constants/translateConstants'
 import usePageTitle from '../../../../../common/hooks/usePageTitle'
 import { useTranslate } from '../../../../../common/hooks/useTranslate'
 import { AdminAddBranchFeatureFormStructure } from '../structures/AdminAddBranchStructure'

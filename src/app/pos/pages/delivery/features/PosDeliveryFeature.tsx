@@ -1,4 +1,4 @@
-import { BRANDS_SRC } from 'src/common/constants/SrcConstants'
+import { BRANDS_SRC } from 'src/common/constants/srcConstants'
 import { RECENT_TRANSACTIONS } from 'src/common/utils/dummyData'
 
 const PosDeliveryFeature = () => {

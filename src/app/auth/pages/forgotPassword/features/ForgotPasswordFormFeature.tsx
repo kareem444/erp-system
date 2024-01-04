@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import AuthContainer from '../../../containers/AuthContainer'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useTranslate } from '../../../../../common/hooks/useTranslate'
-import { TRANSLATE } from '../../../../../common/constants/TranslateConstants'
+import { TRANSLATE } from '../../../../../common/constants/translateConstants'
 import { routes } from '../../../../../common/routes/routes'
 import { ILoginInputs } from '../../login/interfaces/AuthLoginInterface'
 

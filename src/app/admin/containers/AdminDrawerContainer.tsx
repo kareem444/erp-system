@@ -3,8 +3,8 @@ import { NavLink, useLocation } from 'react-router-dom'
 import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon'
 import SideBarSubMenuContainer from '../../../common/containers/SideBarSubMenuContainer'
 import { useTranslate } from '../../../common/hooks/useTranslate'
-import { TRANSLATE } from '../../../common/constants/TranslateConstants'
-import { IMAGE_SRC } from '../../../common/constants/SrcConstants'
+import { TRANSLATE } from '../../../common/constants/translateConstants'
+import { IMAGE_SRC } from '../../../common/constants/srcConstants'
 import { useState } from 'react'
 
 function LeftSidebarContainer() {
