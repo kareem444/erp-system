@@ -1,7 +1,10 @@
-import { IDefaultValuesProperties, IFormComponentProperties } from 'src/common/components/FormComponent'
-import { InputComponentProps } from 'src/common/components/InputComponent'
-import { TRANSLATE } from 'src/common/constants/translateConstants'
-import { translateOptions, useTranslate } from 'src/common/hooks/useTranslate'
+import {
+    IDefaultValuesProperties,
+    IFormComponentProperties,
+} from 'src/common/components/FormComponent';
+import { InputComponentProps } from 'src/common/components/InputComponent';
+import { TRANSLATE } from 'src/common/constants/translateConstants';
+import { translateOptions, useTranslate } from 'src/common/hooks/useTranslate';
 
 /* #region add unit form items Structure */
 const inputsItems = (
@@ -14,26 +17,24 @@ const inputsItems = (
                 name: 'nameEn',
                 rules: {
                     isRequired: true,
-                    isEnglish: true
-                }
-            }
+                    isEnglish: true,
+                },
+            },
         },
         {
-            labelTitle: translate(`${TRANSLATE.NAME} ( ${TRANSLATE.AR} )`, {
-                isArabic: true
-            }),
+            labelTitle: translate(`${TRANSLATE.NAME} ( ${TRANSLATE.AR} )`),
             className: 'text-right',
             validatedInput: {
                 name: 'nameAr',
                 rules: {
                     isRequired: true,
-                    isArabic: true
-                }
+                    isArabic: true,
+                },
             },
-            labelStyle: 'ml-auto'
+            labelStyle: 'ml-auto',
         },
-    ]
-}
+    ];
+};
 
 const handelFormProperties = (
     translate: (text: string | string[], option?: translateOptions) => string,
@@ -43,39 +44,41 @@ const handelFormProperties = (
         inputs: inputsItems(translate),
         button: {
             text: translate(isEdit ? TRANSLATE.EDIT : TRANSLATE.ADD),
-            icon: isEdit ? 'fi-rr-pencil' : 'fi-rr-plus'
+            icon: isEdit ? 'fi-rr-pencil' : 'fi-rr-plus',
         },
         containerClassName: '',
         childClassnames: '',
         onSubmit: (data: IDefaultValuesProperties) => {
-            console.log(data)
+            console.log(data);
         },
         defaultValues: {
             nameEn: '',
             nameAr: '',
             price: '',
-            image: ''
-        }
-    }
-}
+            image: '',
+        },
+    };
+};
 
-export const AdminAddUnitFeatureFormStructure = (): IFormComponentProperties => {
-    const { translate } = useTranslate()
-    return handelFormProperties(translate)
-}
+export const AdminAddUnitFeatureFormStructure =
+    (): IFormComponentProperties => {
+        const { translate } = useTranslate();
+        console.log(translate);
+        return handelFormProperties(translate);
+    };
 
 export const AdminEditUnitModalFormStructure = (): IFormComponentProperties => {
-    const { translate } = useTranslate()
+    const { translate } = useTranslate();
 
     return {
         ...handelFormProperties(translate, true),
-        onSubmit: (data: IDefaultValuesProperties) => { },
+        onSubmit: (data: IDefaultValuesProperties) => {},
         defaultValues: {
             nameEn: 'Dummy Name',
             nameAr: 'اسم وهمي',
             price: '100',
-            image: ''
-        }
-    }
-}
+            image: '',
+        },
+    };
+};
 /* #endregion */
