@@ -1,23 +1,23 @@
-import { FC } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import InputComponent, { InputComponentProps } from './InputComponent'
+import { FC } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import InputComponent, { InputComponentProps } from './InputComponent';
 import AdminButtonComponent, {
-    AdminButtonContainerProps
-} from 'src/app/admin/components/AdminButtonContainer'
+    AdminButtonContainerProps,
+} from 'src/app/admin/components/AdminButtonContainer';
 
 export interface IDefaultValuesProperties {
-    [key: string]: string | number | boolean | undefined
+    [key: string]: string | number | boolean | undefined;
 }
 
 export interface IFormComponentProperties {
-    defaultValues?: IDefaultValuesProperties
-    containerClassName?: string
-    formClassName?: string
-    childClassnames?: string
-    inputs: InputComponentProps[]
-    onSubmit?: SubmitHandler<IDefaultValuesProperties>
-    button?: AdminButtonContainerProps,
-    child?: JSX.Element
+    defaultValues?: IDefaultValuesProperties;
+    containerClassName?: string;
+    formClassName?: string;
+    childClassnames?: string;
+    inputs: InputComponentProps[];
+    onSubmit?: SubmitHandler<IDefaultValuesProperties>;
+    button?: AdminButtonContainerProps;
+    child?: JSX.Element;
 }
 
 const FormComponent: FC<IFormComponentProperties> = ({
@@ -28,29 +28,33 @@ const FormComponent: FC<IFormComponentProperties> = ({
     containerClassName = '',
     childClassnames,
     formClassName = '',
-    child
+    child,
 }) => {
     const {
         handleSubmit,
         formState: { errors },
-        control
+        control,
     } = useForm<IDefaultValuesProperties>({
-        defaultValues
-    })
+        defaultValues,
+    });
 
-    const onFormSubmit: SubmitHandler<IDefaultValuesProperties> = data => onSubmit && onSubmit(data)
+    const onFormSubmit: SubmitHandler<IDefaultValuesProperties> = (data) =>
+        onSubmit && onSubmit(data);
 
     return (
-        <form onSubmit={handleSubmit(onFormSubmit)} className={'flex-1' + ' ' + formClassName}>
+        <form
+            onSubmit={handleSubmit(onFormSubmit)}
+            className={'flex-1' + ' ' + formClassName}>
             <div
                 className={
-                    'grid grid-cols-1 grid-rows-1 sm:grid-cols-12 gap-5 grid-flow-row' + ' ' + containerClassName
-                }
-            >
+                    'grid grid-cols-1 grid-rows-1 sm:grid-cols-12 gap-5 grid-flow-row' +
+                    ' ' +
+                    containerClassName
+                }>
                 {inputs.map((input, index) => {
                     if (input.validatedInput) {
-                        input.validatedInput.control = control
-                        input.validatedInput.error = errors
+                        input.validatedInput.control = control;
+                        input.validatedInput.error = errors;
                     }
                     return (
                         <InputComponent
@@ -58,13 +62,13 @@ const FormComponent: FC<IFormComponentProperties> = ({
                             key={index}
                             containerStyle={`col-span-6 ${childClassnames} ${input.containerStyle}`}
                         />
-                    )
+                    );
                 })}
             </div>
             {child}
-            {button && <AdminButtonComponent {...button} type='submit' />}
+            {button && <AdminButtonComponent {...button} type="submit" />}
         </form>
-    )
-}
+    );
+};
 
-export default FormComponent
+export default FormComponent;
