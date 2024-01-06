@@ -33,6 +33,16 @@ const inputsItems = (
             },
             labelStyle: 'ml-auto',
         },
+        {
+            labelTitle: translate(`${TRANSLATE.STORE_CODE}`),
+            validatedInput: {
+                name: 'code',
+                rules: {
+                    isRequired: true,
+                    isEnglish: true,
+                },
+            },
+        },
     ];
 };
 
@@ -60,13 +70,13 @@ const handelFormProperties = (
     };
 };
 
-export const AdminAddUnitFeatureFormStructure =
+export const AdminAddStoreForm =
     (): IFormComponentProperties => {
         const { translate } = useTranslate();
         return handelFormProperties(translate);
     };
 
-export const AdminEditUnitModalFormStructure = (): IFormComponentProperties => {
+export const AdminEditStoreModalFormStructure = (): IFormComponentProperties => {
     const { translate } = useTranslate();
 
     return {
