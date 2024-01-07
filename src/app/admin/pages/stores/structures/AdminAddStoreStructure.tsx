@@ -31,7 +31,6 @@ const inputsItems = (
                     isArabic: true,
                 },
             },
-            labelStyle: 'ml-auto',
         },
         {
             labelTitle: translate(`${TRANSLATE.STORE_CODE}`),
@@ -70,24 +69,24 @@ const handelFormProperties = (
     };
 };
 
-export const AdminAddStoreForm =
+export const AdminAddStoreForm = (): IFormComponentProperties => {
+    const { translate } = useTranslate();
+    return handelFormProperties(translate);
+};
+
+export const AdminEditStoreModalFormStructure =
     (): IFormComponentProperties => {
         const { translate } = useTranslate();
-        return handelFormProperties(translate);
-    };
 
-export const AdminEditStoreModalFormStructure = (): IFormComponentProperties => {
-    const { translate } = useTranslate();
-
-    return {
-        ...handelFormProperties(translate, true),
-        onSubmit: (data: IDefaultValuesProperties) => {},
-        defaultValues: {
-            nameEn: 'Dummy Name',
-            nameAr: 'اسم وهمي',
-            price: '100',
-            image: '',
-        },
+        return {
+            ...handelFormProperties(translate, true),
+            onSubmit: (data: IDefaultValuesProperties) => {},
+            defaultValues: {
+                nameEn: 'Dummy Name',
+                nameAr: 'اسم وهمي',
+                price: '100',
+                image: '',
+            },
+        };
     };
-};
 /* #endregion */

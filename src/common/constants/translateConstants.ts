@@ -7,7 +7,7 @@ export const TRANSLATE = {
     DONT_HAVE_ACCOUNT: 'dontHaveAccount',
     THIS_FIELD_IS_REQUIRED: 'thisFieldIsRequired',
     NAME: 'name',
-    STORE_CODE: 'Store Code',
+    STORE_CODE: 'code',
     ALREADY_HAVE_ACCOUNT: 'alreadyHaveAccount',
     SEND_OTP: 'sendOTP',
     WE_WILL_SEND_OTP: 'weWillSendOTP',
