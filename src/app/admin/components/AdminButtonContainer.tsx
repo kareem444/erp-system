@@ -7,6 +7,7 @@ export interface AdminButtonContainerProps {
     icon?: string
     onClick?: () => void
     disabled?: boolean
+    isLoading?: boolean
     type?: 'button' | 'submit' | 'reset'
 }
 
@@ -17,19 +18,28 @@ const AdminButtonComponent: FC<AdminButtonContainerProps> = ({
     icon,
     onClick,
     type = 'button',
-    disabled = false
+    disabled = false,
+    isLoading = false,
 }) => {
     return (
         <div className={`flex justify-center ${containerClassName}`}>
             <button
-                disabled={disabled}
+                disabled={disabled || isLoading}
                 type={type}
-                className={`btn btn-info text-white bg-cyan-500 w-1/3 mt-5 flex ${!!icon && 'justify-between'
-                    } ${buttonClassName}`}
+                className={
+                    'btn btn-info text-white bg-cyan-500 w-1/3 mt-5 flex ' +
+                    ((!!icon && !isLoading) && ' justify-between ') +
+                    buttonClassName +
+                    (isLoading ? ' loading ' : '')
+                }
                 onClick={onClick}
             >
-                {text}
-                {icon && <i className={`fi ${icon} mx-2`}></i>}
+                {!isLoading && (
+                    <>
+                        {text}
+                        {icon && <i className={`fi ${icon} mx-2`}></i>}
+                    </>
+                )}
             </button>
         </div>
     )

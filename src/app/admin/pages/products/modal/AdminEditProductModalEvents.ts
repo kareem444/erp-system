@@ -1,9 +1,9 @@
 import useProductUiReducer from '../redux/ui/useProductUiReducer'
 
-export const OnEditProductModalCloseEvent = (): { close: () => void } => {
+export const OnEditProductModalCloseEvent = (): { click: () => void } => {
     const { resetProduct } = useProductUiReducer()
     return {
-        close: () => {
+        click: () => {
             resetProduct()
         },
     }
