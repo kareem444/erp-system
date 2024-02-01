@@ -112,8 +112,7 @@ export const TableComponent: React.FC<ITableContent> = ({
                                     if (value.length > maxStringLength) {
                                         value = value.substring(0, maxStringLength) + '...'
                                     }
-                                    // @ts-ignore
-                                    return <td key={index}>{value}</td>
+                                    return <td key={index}>{value !== "" ? value : "__"}</td>
                                 })}
                                 {buttons && (
                                     <td >

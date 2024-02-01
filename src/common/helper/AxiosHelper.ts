@@ -14,35 +14,41 @@ const axiosInstance = Axios.create({
 export default class AxiosHelper {
     static async get(url: string, params?: any) {
         return await AsyncHelper.createPromise(
-            async () => await axiosInstance.get(url, { params })
+            async () => {
+                const res = await axiosInstance.get(url, { params })
+                return res.data
+            }
         )
     }
 
     static async post(url: string, data: any, params?: any, isMultipart = false) {
         return await AsyncHelper.createPromise(async () => {
-            return await axiosInstance.post(url, data, {
+            const newData = await axiosInstance.post(url, data, {
                 headers: {
                     'Content-Type': isMultipart ? 'multipart/form-data' : 'application/json'
                 },
                 params
             })
+            return newData.data
         })
     }
 
-    static async put(url: string, data: any, params?: any, isMultipart = false) {
+    static async put(url: string, data: { id: number } & any, params?: any, isMultipart = false) {
         return await AsyncHelper.createPromise(async () => {
-            return await axiosInstance.put(url, data, {
+            const updatedData = await axiosInstance.put(url, data, {
                 headers: {
                     'Content-Type': isMultipart ? 'multipart/form-data' : 'application/json'
                 },
                 params
             })
+            return updatedData.data
         })
     }
 
     static async delete(url: string, params?: any) {
-        return await AsyncHelper.createPromise(
+        const deleteData = await AsyncHelper.createPromise(
             async () => await axiosInstance.delete(url, { params })
         )
+        return deleteData.data
     }
 }

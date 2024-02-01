@@ -1,9 +1,8 @@
-export interface IAdminCustomerModel {
+import { IAdminCustomerInputs } from "../pages/customers/interfaces/AdminCustomersInterface"
+
+export interface IAdminCustomerModel extends IAdminCustomerInputs {
     id?: number
-    name: string
-    mobile: string
-    taxNumber: string
-    address: string
+    active: boolean
     createdAt?: Date
     updatedAt?: Date
 }

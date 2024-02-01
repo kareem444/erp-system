@@ -12,40 +12,100 @@ export const AdminCustomersInputsItemsStructure = (
         {
             labelTitle: translate(`${TRANSLATE.NAME}`),
             validatedInput: {
-                name: AdminCustomerInputsConstants.name,
+                name: AdminCustomerInputsConstants.customername,
                 rules: {
                     isRequired: true,
-                    isEnglish: true
                 }
             }
         },
         {
-            labelTitle: translate(`Mobile`),
+            labelTitle: translate(`Email`),
             validatedInput: {
-                name: AdminCustomerInputsConstants.mobile,
+                name: AdminCustomerInputsConstants.emailaddress,
                 rules: {
-                    isRequired: true,
-                    isNumber: true
+                    isEmail: true,
+                }
+            }
+        },
+        {
+            labelTitle: translate(`Mobile 1`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.phone1,
+                rules: {
+                }
+            }
+        },
+        {
+            labelTitle: translate(`Mobile 2`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.phone2,
+                rules: {
                 }
             }
         },
         {
             labelTitle: translate(`Tax Number`),
             validatedInput: {
-                name: AdminCustomerInputsConstants.taxNumber,
+                name: AdminCustomerInputsConstants.taxno,
                 rules: {
-                    isRequired: true,
-                    isNumber: true
                 }
             }
         },
         {
             labelTitle: translate(`Address`),
             validatedInput: {
-                name: AdminCustomerInputsConstants.address,
+                name: AdminCustomerInputsConstants.personaddress,
                 rules: {
-                    isRequired: true,
-                    isEnglish: true
+                }
+            }
+        },
+        {
+            labelTitle: translate(`Account Number`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.accountno,
+                rules: {
+                }
+            }
+        },
+        {
+            labelTitle: translate(`Contact Name`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.contactname,
+                rules: {
+                }
+            }
+        },
+        {
+            type: "number",
+            labelTitle: translate(`Max Credit`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.maxcredit,
+                rules: {
+                }
+            }
+        },
+        {
+            type: "number",
+            labelTitle: translate(`Max Time`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.maxtime,
+                rules: {
+                }
+            }
+        },
+        {
+            labelTitle: translate(`CR`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.cno,
+                rules: {
+                }
+            }
+        },
+        {
+            labelTitle: translate(`Initial Balance`),
+            validatedInput: {
+                name: AdminCustomerInputsConstants.intbalance,
+                rules: {
                 }
             }
         },

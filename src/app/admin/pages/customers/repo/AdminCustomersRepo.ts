@@ -7,11 +7,11 @@ const customer = EndPointsConstants.Customer;
 export class AdminCustomersRepo {
     static getCustomers = async () => await AxiosHelper.get(customer);
 
-    static getCustomer = async (id: string) => await AxiosHelper.get(`${customer}/${id}`);
+    static getCustomer = async (id: number) => await AxiosHelper.get(`${customer}/${id}`);
 
     static createCustomer = async (data: IAdminCustomerModel) => await AxiosHelper.post(customer, data);
 
-    static updateCustomer = async (id: string, data: IAdminCustomerModel) => await AxiosHelper.put(`${customer}/${id}`, data);
+    static updateCustomer = async (data: IAdminCustomerModel) => await AxiosHelper.put(`${customer}/${data.id}`, data);
 
-    static deleteCustomer = async (id: string) => await AxiosHelper.delete(`${customer}/${id}`);
+    static deleteCustomer = async (id: number) => await AxiosHelper.delete(`${customer}/${id}`);
 }

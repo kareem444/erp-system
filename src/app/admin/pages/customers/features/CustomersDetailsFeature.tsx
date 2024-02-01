@@ -24,17 +24,17 @@ export default function CustomerDetailsFeature() {
     });
 
     const tableContent: ITableContent = {
-        header: ["Name", "Mobile", "TaxNumber", "Address"],
+        header: ["Name", "Mobile", "Tax Number", "Address"],
         items: data || [],
         showFilterDropDown: true,
-        filter: ["Name", "Mobile", "TaxNumber", "Address"],
+        filter: ["customername", "phone1", "taxno", "personaddress"],
         defaultFilterItem: "Name",
         selectors: {
-            Mobile: (item: IAdminCustomerModel) => item.mobile,
-            TaxNumber: (item: IAdminCustomerModel) => item.taxNumber,
-            Address: (item: IAdminCustomerModel) => item.address,
+            phone1 : (item: IAdminCustomerModel) => item.phone1,
+            taxno: (item: IAdminCustomerModel) => item.taxno,
+            personaddress: (item: IAdminCustomerModel) => item.personaddress,
         },
-        nameSelector: (item: IAdminCustomerModel) => item.name,
+        nameSelector: (item: IAdminCustomerModel) => item.customername,
         buttons: {
             onEdit: (item: IAdminCustomerModel) => {
                 setState(item);
