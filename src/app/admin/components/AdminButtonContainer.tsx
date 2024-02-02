@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 export interface AdminButtonContainerProps {
     buttonClassName?: string
@@ -42,7 +42,7 @@ const AdminButtonComponent: FC<AdminButtonContainerProps> = ({
                 )}
             </button>
         </div>
-    )
-}
+    );
+};
 
-export default AdminButtonComponent
+export default AdminButtonComponent;

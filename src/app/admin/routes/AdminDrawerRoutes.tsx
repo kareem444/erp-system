@@ -31,6 +31,10 @@ export const AdminDrawerRoutes: SideBarRoute[] = [
         name: 'units',
       },
       {
+        path: routes.admin.stores.fullPath,
+        name: 'stores',
+      },
+      {
         path: routes.admin.groups.fullPath,
         name: 'groups',
       },

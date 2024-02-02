@@ -6,7 +6,7 @@ import { InputComponentProps } from 'src/common/components/InputComponent';
 import { TRANSLATE } from 'src/common/constants/translateConstants';
 import { translateOptions, useTranslate } from 'src/common/hooks/useTranslate';
 
-/* #region add group form items Structure */
+/* #region add unit form items Structure */
 const inputsItems = (
     translate: (text: string | string[], option?: translateOptions) => string
 ): InputComponentProps[] => {
@@ -31,7 +31,16 @@ const inputsItems = (
                     isArabic: true,
                 },
             },
-            labelStyle: 'ml-auto',
+        },
+        {
+            labelTitle: translate(`${TRANSLATE.STORE_CODE}`),
+            validatedInput: {
+                name: 'code',
+                rules: {
+                    isRequired: true,
+                    isEnglish: true,
+                },
+            },
         },
     ];
 };
@@ -60,13 +69,12 @@ const handelFormProperties = (
     };
 };
 
-export const AdminAddGroupFeatureFormStructure =
-    (): IFormComponentProperties => {
-        const { translate } = useTranslate();
-        return handelFormProperties(translate);
-    };
+export const AdminAddStoreForm = (): IFormComponentProperties => {
+    const { translate } = useTranslate();
+    return handelFormProperties(translate);
+};
 
-export const AdminEditGroupModalFormStructure =
+export const AdminEditStoreModalFormStructure =
     (): IFormComponentProperties => {
         const { translate } = useTranslate();
 
