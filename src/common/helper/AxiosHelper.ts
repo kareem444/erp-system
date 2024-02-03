@@ -7,7 +7,7 @@ const axiosInstance = Axios.create({
     headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: 'Bearer ' + CookiesHelper.get('access_token')
+      //  Authorization: 'Bearer ' + CookiesHelper.get('access_token')
     }
 })
 

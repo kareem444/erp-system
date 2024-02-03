@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { TableButtonsComponent } from './IconsButtonsComponent'
 import DraggableItemComponent from './DraggableItemComponent'
+import { useTranslate } from '../../common/hooks/useTranslate'
+import { TRANSLATE } from '../../common/constants/translateConstants'
 
 export interface ITableContent {
     header: string[]
@@ -11,6 +13,7 @@ export interface ITableContent {
     selectors: any
     avatarSelector?: any
     nameSelector?: any
+    storeSelector?: any
     isDraggable?: boolean
     maxStringLength?: number
     onDrag?: (item: any) => void
@@ -33,11 +36,13 @@ export const TableComponent: React.FC<ITableContent> = ({
     selectors,
     avatarSelector,
     nameSelector,
+    storeSelector,
     buttons,
     isDraggable = false,
     onDrag,
     maxStringLength = 20,
 }) => {
+    const { translate, isArabic } = useTranslate()
     const [dragResult, setDragResult] = useState<[any, any]>([null, null])
 
     useEffect(() => {
@@ -70,7 +75,7 @@ export const TableComponent: React.FC<ITableContent> = ({
                         {isDraggable && <td></td>}
                         {header.map((h, k) => {
                             return (
-                                <td key={k} className='text-left !z-0'>
+                                <td key={k} className= {isArabic? 'text-right !z-0':'text-left !z-0'}>
                                     {h}
                                 </td>
                             )
@@ -89,9 +94,9 @@ export const TableComponent: React.FC<ITableContent> = ({
                                 isDraggable={isDraggable}
                                 setDragResult={setDragResult}
                             >
-                                {(avatarSelector || nameSelector) && (
+                                {(avatarSelector || nameSelector || storeSelector) && (
                                     <td>
-                                        <div className='flex items-center space-x-3'>
+                                        <div className={isArabic? 'flex items-end space-x-3' : 'flex items-start space-x-3'}>
                                             {avatarSelector && (
                                                 <div className='avatar'>
                                                     <div className='mask mask-circle w-12 h-12'>
@@ -104,6 +109,11 @@ export const TableComponent: React.FC<ITableContent> = ({
                                                     <div className='font-bold'>{nameSelector(l)}</div>
                                                 </div>
                                             )}
+                                            {storeSelector && (
+                                                <div>
+                                                    <div className='font-bold'>{storeSelector(l)}</div>
+                                                </div>
+                                            )}
                                         </div>
                                     </td>
                                 )}
@@ -112,7 +122,11 @@ export const TableComponent: React.FC<ITableContent> = ({
                                     if (value.length > maxStringLength) {
                                         value = value.substring(0, maxStringLength) + '...'
                                     }
-                                    return <td key={index}>{value !== "" ? value : "__"}</td>
+                                    // @ts-ignore
+                                    return <td key={index}>
+                                         <div className={isArabic? 'flex items-end space-x-3' : 'flex items-start space-x-3'}>
+                                                    <div>{value !== "" ? value : "__"}</div>
+                                                </div></td>
                                 })}
                                 {buttons && (
                                     <td >

@@ -1,0 +1,16 @@
+.collapse-plus-ar .collapse-title::after{
+    position: absolute;
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    top: 0.9rem;
+    left: 1.4rem;
+    content: "+";
+    pointer-events: none;
+}
+.collapse-plus-ar:not(.collapse-close) input[type="checkbox"]:checked ~ .collapse-title::after {
+    content: "−";
+  }

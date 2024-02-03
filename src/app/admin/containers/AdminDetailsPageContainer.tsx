@@ -19,7 +19,7 @@ export const AdminDetailsPageContainer: React.FC<
 > = ({ tableContent, className }) => {
     const [searchedItems, setSearchedItems] = useState(tableContent.items)
     const { title } = usePageTitle()
-    const { translate } = useTranslate()
+    const { translate, isArabic } = useTranslate()
 
     useEffect(() => {
         setSearchedItems(tableContent.items)
@@ -27,7 +27,7 @@ export const AdminDetailsPageContainer: React.FC<
 
     return (
         <TitleCardComponent
-            title={`${title} ${translate(TRANSLATE.DETAILS)}`}
+            title={ isArabic ? `${translate(TRANSLATE.DETAILS)} ${title} ` : `${title} ${translate(TRANSLATE.DETAILS)}`}
             topMargin={'h-full overflow-y-hidden flex-1' + ' ' + className}
             TopSideButtons={
                 !!tableContent.filter && (

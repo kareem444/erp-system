@@ -38,7 +38,7 @@ const DropDownComponent: FC<DropDownComponentProps> = ({
                 onClick={() => setIsVisible(() => "hover:visible")}
                 role='button'
                 className={
-                    'p-2 rounded-lg bg-white w-full border-slate-400 border text-slate-400 flex flex-row justify-between items-center' +
+                    'p-2 rounded-lg  w-full border-slate-400 border text-slate-400 flex flex-row justify-between items-center' +
                     ' ' +
                     inputClassName
                 }

@@ -1,6 +1,8 @@
 import FunnelIcon from '@heroicons/react/24/outline/FunnelIcon'
 import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { TRANSLATE } from 'src/common/constants/translateConstants'
+import { useTranslate } from 'src/common/hooks/useTranslate'
 
 interface FilterProps {
   input?: {
@@ -28,6 +30,7 @@ const FilterComponent: FC<FilterProps> = ({
   onSearch,
   update
 }) => {
+  const { translate } = useTranslate()
   const [searchTextValue, setSearchTextValue] = useState('')
   const [filterParam, setFilterParam] = useState('')
 
@@ -71,10 +74,7 @@ const FilterComponent: FC<FilterProps> = ({
     if (update) {
       update.onUpdateState(
         update.items.filter((t: any) =>
-          t[val !== '' ? val.toLowerCase() : filter!.items[0]?.toLowerCase()]
-            .toString()
-            .toLowerCase()
-            .includes(val !== '' ? searchTextValue.toLowerCase() : '')
+        t[val !== '' ? val.toLowerCase() : filter!.items[0]?.toLowerCase()]?.toString()?.toLowerCase()?.includes(val !== '' ? searchTextValue.toLowerCase() : '')
         )
       )
     }
@@ -93,7 +93,7 @@ const FilterComponent: FC<FilterProps> = ({
         <input
           type='search'
           value={searchTextValue}
-          placeholder={input?.placeholderText || 'search'}
+          placeholder={input?.placeholderText || `${translate(TRANSLATE.SEARCH)}`}
           onChange={e => updateSearchInput(e.target.value)}
           className='input input-bordered w-full max-w-xs h-10'
         />

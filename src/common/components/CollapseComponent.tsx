@@ -1,4 +1,7 @@
 import { FC } from 'react'
+import { useTranslate } from '../../common/hooks/useTranslate'
+import { TRANSLATE } from '../../common/constants/translateConstants'
+import './CollapseTitle.css'
 
 interface CollapseComponentProps {
     children: React.ReactNode
@@ -11,12 +14,14 @@ const CollapseComponent: FC<CollapseComponentProps> = ({
     title,
     className
 }) => {
+    const { translate, isArabic } = useTranslate()
     return (
         <div
             className={
-                'collapse collapse-plus px-2 card w-full bg-base-100 shadow-sm' +
-                ' ' +
-                className
+                isArabic?  'collapse collapse-plus-ar px-2 card w-full bg-base-100 shadow-sm' 
+                + ' ' + className : 
+                'collapse collapse-plus px-2 card w-full bg-base-100 shadow-sm '
+                 + ' ' + className
             }
         >
             <input type='checkbox' />
