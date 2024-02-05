@@ -1,19 +1,20 @@
-import { ITableContent } from "../../../../../common/components/TableComponent";
+import { IAdminDetailsStatusContainerProps } from "src/app/admin/containers/AdminDetailsStatusContainer";
 import AdminModalActionsStructure from "src/app/admin/structure/modal/AdminModalActionsStructure";
-import AdminDetailsStatusContainer from "src/app/admin/containers/AdminDetailsStatusContainer";
 import useEchoState from "src/common/DataHandler/hooks/client/useEchoState";
-import { EchoStateConstants } from "src/common/constants/EchoStateConstants";
-import { IAdminCustomerModel } from "src/app/admin/models/AdminCustomerModel";
-import { AsyncStateConstants } from "src/common/constants/AsyncStateConstants";
-import { AdminCustomersRepo } from "../repo/AdminCustomersRepo";
 import useFetch from "src/common/DataHandler/hooks/server/useFetch";
+import { AsyncStateConstants } from "src/common/constants/AsyncStateConstants";
+import { EchoStateConstants } from "src/common/constants/EchoStateConstants";
+import { AdminCustomersRepo } from "../repo/AdminCustomersRepo";
 import { showNotification } from "src/common/components/ShowNotificationComponent";
+import { ITableContent } from "src/common/components/TableComponent";
+import { IAdminCustomerModel } from "src/app/admin/models/AdminCustomerModel";
+import { AdminCustomerTableHeaderConstants } from "../constants/AdminCustomerTableConstants";
 
-export default function CustomerDetailsFeature() {
+export const AdminGetCustomerStructure = (): IAdminDetailsStatusContainerProps => {
     const { openEditModal, openDeleteModal } = AdminModalActionsStructure();
     const { setState } = useEchoState(EchoStateConstants.selectedItem);
 
-    const { data, isLoading, isError } = useFetch<IAdminCustomerModel[]>({
+    const { data, isLoading, isError, query } = useFetch<IAdminCustomerModel[]>({
         key: AsyncStateConstants.customers,
         queryFn: () => AdminCustomersRepo.getCustomers(),
         options: {
@@ -24,13 +25,10 @@ export default function CustomerDetailsFeature() {
     });
 
     const tableContent: ITableContent = {
-        header: ["Name", "Mobile", "Tax Number", "Address"],
+        header: AdminCustomerTableHeaderConstants,
         items: data || [],
-        showFilterDropDown: true,
-        filter: ["customername", "phone1", "taxno", "personaddress"],
-        defaultFilterItem: "Name",
         selectors: {
-            phone1 : (item: IAdminCustomerModel) => item.phone1,
+            phone1: (item: IAdminCustomerModel) => item.phone1,
             taxno: (item: IAdminCustomerModel) => item.taxno,
             personaddress: (item: IAdminCustomerModel) => item.personaddress,
         },
@@ -50,12 +48,11 @@ export default function CustomerDetailsFeature() {
         },
     };
 
-    return (
-        <AdminDetailsStatusContainer
-            tableContent={tableContent}
-            isLoading={isLoading && !data}
-            isError={isError}
-            isData={!!data && data.length > 0}
-        />
-    );
-}
+    return {
+        isData: !!data && data.length > 0,
+        isLoading,
+        isError,
+        tableContent,
+        onRefresh: query,
+    }
+};

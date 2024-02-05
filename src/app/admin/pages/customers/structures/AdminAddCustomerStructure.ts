@@ -1,31 +1,25 @@
 import { IFormComponentProperties } from "src/common/components/FormComponent";
 import { TRANSLATE } from "src/common/constants/translateConstants";
 import { useTranslate } from "src/common/hooks/useTranslate";
-import { AdminCustomersInputsItemsStructure } from "./AdminCustomersInputsStructure";
+import { AdminCustomersInputsStructure } from "./AdminCustomersInputsStructure";
 import { AdminButtonContainerProps } from "src/app/admin/components/AdminButtonContainer";
 import { IAdminCustomerInputs } from "../interfaces/AdminCustomersInterface";
-import useAsyncState from "src/common/DataHandler/hooks/server/useAsyncState";
 import { IAdminCustomerModel } from "src/app/admin/models/AdminCustomerModel";
-import { AsyncStateConstants } from "src/common/constants/AsyncStateConstants";
 import useMutate from "src/common/DataHandler/hooks/server/useMutate";
 import { showNotification } from "src/common/components/ShowNotificationComponent";
 import { AdminCustomersRepo } from "../repo/AdminCustomersRepo";
+import useCrudHandler from "src/common/hooks/useCrudHandler";
 
-export const AdminAddCustomerFeatureFormStructure =
+export const AdminAddCustomerStructure =
     (): IFormComponentProperties => {
         const { translate } = useTranslate();
-        const { setState } = useAsyncState<IAdminCustomerModel[]>(AsyncStateConstants.customers)
+        const { createOperation } = useCrudHandler<IAdminCustomerModel>('customers')
 
         const { mutate, isLoading } = useMutate({
             queryFn: data => AdminCustomersRepo.createCustomer(data),
             options: {
                 onSuccess(id: number, param: IAdminCustomerInputs) {
-                    setState(prevState => {
-                        const newCustomer = { ...param, active: false, id }
-                        return {
-                            data: [...(prevState?.data || []), newCustomer]
-                        }
-                    })
+                    createOperation({ ...param, active: false, id })
                     showNotification('Customer added successfully')
                 },
                 onError(formattedError) {
@@ -58,7 +52,7 @@ export const AdminAddCustomerFeatureFormStructure =
         };
 
         return {
-            inputs: AdminCustomersInputsItemsStructure(),
+            inputs: AdminCustomersInputsStructure(),
             button,
             onSubmit: handelOnSubmit,
             defaultValues: defaultValues as any,

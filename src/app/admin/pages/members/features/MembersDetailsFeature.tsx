@@ -37,8 +37,6 @@ export default function MembersDetailsFeature() {
 
     const tableContent: ITableContent = {
         header: ['Name', "Mobile", "Email", "Branch", "Role", 'Date'],
-        filter: ['Name'],
-        defaultFilterItem: 'Name',
         items: RECENT_TRANSACTIONS,
         maxStringLength: 15,
         selectors: {

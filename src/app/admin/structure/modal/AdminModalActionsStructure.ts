@@ -1,14 +1,18 @@
+import { TRANSLATE } from 'src/common/constants/translateConstants'
 import {
     ModalComponentsKeys,
     ModalEventsKeys
 } from 'src/common/containers/ModalContainer'
 import usePageTitle from 'src/common/hooks/usePageTitle'
+import { useTranslate } from 'src/common/hooks/useTranslate'
 import { IModalSizes } from 'src/common/redux/modal/ModalInterface'
 import useModalReducer from 'src/common/redux/modal/useModalReducer'
 
 const AdminModalActionsStructure = () => {
     const { openModel } = useModalReducer()
     const { title, titleWithoutLetterS, titleWithoutLetterES } = usePageTitle()
+
+    const { translate } = useTranslate()
 
     const handelTitle = (formatTitle: 'none' | 's' | 'es') => {
         switch (formatTitle) {
@@ -22,24 +26,50 @@ const AdminModalActionsStructure = () => {
     }
 
     return {
-        openEditModal: (
+        openAddModal: (
             modalComponent: ModalComponentsKeys,
             {
                 size,
                 title,
-                formatTitle
+                formatTitle,
+                onClose
             }: {
                 title?: string
                 formatTitle?: 'none' | 's' | 'es'
                 size?: IModalSizes
+                onClose?: ModalEventsKeys | undefined
             } = {}
         ) => {
             openModel({
                 modalComponent,
                 size: size ?? '3xl',
                 title: {
-                    text: title ?? `Edit ${handelTitle(formatTitle ?? 'es')}`
-                }
+                    text: title ?? `${translate(TRANSLATE.ADD)} ${handelTitle(formatTitle ?? 'es')}`
+                },
+                onClose
+            })
+        },
+        openEditModal: (
+            modalComponent: ModalComponentsKeys,
+            {
+                size,
+                title,
+                formatTitle,
+                onClose
+            }: {
+                title?: string
+                formatTitle?: 'none' | 's' | 'es'
+                size?: IModalSizes
+                onClose?: ModalEventsKeys | undefined
+            } = {}
+        ) => {
+            openModel({
+                modalComponent,
+                size: size ?? '3xl',
+                title: {
+                    text: title ?? `${translate(TRANSLATE.EDIT)} ${handelTitle(formatTitle ?? 'es')}`
+                },
+                onClose
             })
         },
         openDeleteModal: (
@@ -48,25 +78,28 @@ const AdminModalActionsStructure = () => {
             {
                 title,
                 formatTitle,
-                size
+                size,
+                onClose
             }: {
                 title?: string
                 formatTitle?: 'none' | 's' | 'es'
                 size?: IModalSizes
+                onClose?: ModalEventsKeys | undefined
             } = {}
         ) => {
             openModel({
                 modalComponent,
                 size: size ?? 'sm',
                 title: {
-                    text: title ?? `Delete ${handelTitle(formatTitle ?? 'es')}`
+                    text: title ?? `${translate(TRANSLATE.DELETE)} ${handelTitle(formatTitle ?? 'es')}`
                 },
                 closeButton: {
                     showCloseButton: true
                 },
+                onClose,
                 buttons: [
                     {
-                        text: 'Delete',
+                        text: translate(TRANSLATE.DELETE),
                         onClick: onDelete,
                     }
                 ]

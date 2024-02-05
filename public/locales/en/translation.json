@@ -92,6 +92,8 @@
   "customers-reports" : "Customers Reports",
   "suppliers-reports" : "Suppliers Reports",
   "ar": "AR",
-  "en": "ENG"
+  "en": "ENG",
+  "refresh": "Refresh",
+  "theData": "Data"
 }
 

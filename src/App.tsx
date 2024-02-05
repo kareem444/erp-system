@@ -1,18 +1,12 @@
 import { useEffect } from 'react'
 import { themeChange } from 'theme-change'
-// import checkAuth from './unUsed/app/auth';
-// import initializeApp from './unUsed/app/init';
 import RoutesContainer from './common/routes';
 import { useTranslate } from './common/hooks/useTranslate';
-
-// Initializing different libraries
-// initializeApp()
-
-// Check for login and initialize axios
-// const token = checkAuth()
+import useModalReducer from './common/redux/modal/useModalReducer';
 
 function App() {
   const { dir } = useTranslate()
+  const { state, closeModal } = useModalReducer()
 
   useEffect(() => {
     document.body.dir = dir
@@ -20,9 +14,30 @@ function App() {
 
   useEffect(() => {
     // 👆 daisy UI themes initialization
+    if (document.querySelector('html')?.getAttribute('data-theme') === null) {
+      if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'winter')
+      }
+      document.querySelector('html')?.setAttribute('data-theme', localStorage.getItem('theme') || 'winter')
+    }
     themeChange(false)
   }, [])
 
+  useEffect(() => {
+    const handleBackButton = (event: any) => {
+      event.preventDefault();
+      if (state.isOpen) {
+        closeModal()
+        window.history.forward();
+      }
+    };
+
+    window.addEventListener('popstate', handleBackButton);
+
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, [state.isOpen])
 
   return (
     <RoutesContainer />

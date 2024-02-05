@@ -77,10 +77,9 @@ const AdminAddComboOfferProductSlice: FC<AdminAddComboOfferProductProps> = ({
                     </div>
                     <AdminButtonComponent
                         icon='fi-rr-plus'
-                        containerClassName='col-span-12 '
                         disabled={isButtonDisabled}
                         onClick={handelOnSubmit}
-                        buttonClassName={`!w-full !justify-center`}
+                        buttonClassName={`!w-full col-span-12 !justify-center`}
                     />
                 </div>
             </div>

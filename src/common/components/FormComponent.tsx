@@ -1,23 +1,26 @@
-import { FC } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import InputComponent, { InputComponentProps } from './InputComponent';
+import { FC } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import InputComponent, { InputComponentProps } from "./InputComponent";
 import AdminButtonComponent, {
     AdminButtonContainerProps,
-} from 'src/app/admin/components/AdminButtonContainer';
+} from "src/app/admin/components/AdminButtonContainer";
+import useModalReducer from "../redux/modal/useModalReducer";
+import useScreenSize from "../hooks/useScreenSize";
 
 export interface IDefaultValuesProperties {
     [key: string]: string | number | boolean | undefined;
 }
 
 export interface IFormComponentProperties {
-    defaultValues?: IDefaultValuesProperties
-    containerClassName?: string
-    formClassName?: string
-    childClassnames?: string
-    inputs: InputComponentProps[]
-    onSubmit?: SubmitHandler<any>
-    button?: AdminButtonContainerProps,
-    child?: JSX.Element
+    defaultValues?: IDefaultValuesProperties;
+    containerClassName?: string;
+    formClassName?: string;
+    childClassnames?: string;
+    inputs: InputComponentProps[];
+    onSubmit?: SubmitHandler<any>;
+    button?: AdminButtonContainerProps;
+    child?: JSX.Element;
+    showCloseModalButton?: boolean;
 }
 
 const FormComponent: FC<IFormComponentProperties> = ({
@@ -25,10 +28,11 @@ const FormComponent: FC<IFormComponentProperties> = ({
     inputs,
     onSubmit,
     button,
-    containerClassName = '',
+    containerClassName = "",
     childClassnames,
-    formClassName = '',
+    formClassName = "",
     child,
+    showCloseModalButton = true,
 }) => {
     const {
         handleSubmit,
@@ -38,18 +42,23 @@ const FormComponent: FC<IFormComponentProperties> = ({
         defaultValues,
     });
 
-    const onFormSubmit: SubmitHandler<any> = data => onSubmit && onSubmit(data)
+    const { isXs } = useScreenSize();
+
+    const { closeModal } = useModalReducer();
+    const onFormSubmit: SubmitHandler<any> = (data) => onSubmit && onSubmit(data);
 
     return (
         <form
             onSubmit={handleSubmit(onFormSubmit)}
-            className={'flex-1' + ' ' + formClassName}>
+            className={"flex-1" + " " + formClassName}
+        >
             <div
                 className={
-                    'grid grid-cols-1 grid-rows-1 sm:grid-cols-12 gap-5 grid-flow-row' +
-                    ' ' +
+                    "grid grid-cols-1 grid-rows-1 sm:grid-cols-12 gap-5 grid-flow-row" +
+                    " " +
                     containerClassName
-                }>
+                }
+            >
                 {inputs.map((input, index) => {
                     if (input.validatedInput) {
                         input.validatedInput.control = control;
@@ -65,7 +74,24 @@ const FormComponent: FC<IFormComponentProperties> = ({
                 })}
             </div>
             {child}
-            {button && <AdminButtonComponent {...button} type="submit" />}
+            {(!!button || showCloseModalButton) && (
+                <div className={"flex mt-5 gap-5 " + (isXs ? "flex-col-reverse" : "")}>
+                    {showCloseModalButton && (
+                        <button className="btn btn-outline flex-1" onClick={closeModal}>
+                            Close
+                        </button>
+                    )}
+                    {button && (
+                        <AdminButtonComponent
+                            buttonClassName={
+                                showCloseModalButton ? "flex-1" : "sm:!w-1/2 lg:!w-1/3 mx-auto"
+                            }
+                            {...button}
+                            type="submit"
+                        />
+                    )}
+                </div>
+            )}
         </form>
     );
 };

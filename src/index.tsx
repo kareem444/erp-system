@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {store} from './common/redux/store'
+import { store } from './common/redux/store'
 import { Provider } from 'react-redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import SplashScreenComponent from './common/components/SplashScreenComponent';
@@ -14,13 +14,13 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  // <React.StrictMode>
-  <Suspense fallback={<SplashScreenComponent />}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Suspense>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Suspense fallback={<SplashScreenComponent />}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Suspense>
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
