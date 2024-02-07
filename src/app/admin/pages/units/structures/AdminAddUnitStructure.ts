@@ -1,83 +1,48 @@
-import {
-    IDefaultValuesProperties,
-    IFormComponentProperties,
-} from 'src/common/components/FormComponent';
-import { InputComponentProps } from 'src/common/components/InputComponent';
+import { IFormComponentProperties } from 'src/common/components/FormComponent';
 import { TRANSLATE } from 'src/common/constants/translateConstants';
-import { translateOptions, useTranslate } from 'src/common/hooks/useTranslate';
+import { useTranslate } from 'src/common/hooks/useTranslate';
+import { AdminUnitsInputsStructure } from './AdminUnitInputsStructure';
+import { AdminButtonContainerProps } from 'src/app/admin/components/AdminButtonContainer';
+import { IUnitInputs } from '../interfaces/UnitInterface';
+import { IUnitModel } from 'src/app/admin/models/UnitModel';
+import useMutate from 'src/common/DataHandler/hooks/server/useMutate';
+import { showNotification } from 'src/common/components/ShowNotificationComponent';
+import { AdminUnitsRepo } from '../repo/UnitRepo';
+import useCrudHandler from 'src/common/hooks/useCrudHandler';
 
-/* #region add unit form items Structure */
-const inputsItems = (
-    translate: (text: string | string[], option?: translateOptions) => string
-): InputComponentProps[] => {
-    return [
-        {
-            labelTitle: translate(`${TRANSLATE.NAME} ( ${TRANSLATE.EN} )`),
-            validatedInput: {
-                name: 'nameEn',
-                rules: {
-                    isRequired: true,
-                    isEnglish: true,
-                },
-            },
-        },
-        {
-            labelTitle: translate(`${TRANSLATE.NAME} ( ${TRANSLATE.AR} )`),
-            className: 'text-right',
-            validatedInput: {
-                name: 'nameAr',
-                rules: {
-                    isRequired: true,
-                    isArabic: true,
-                },
-            },
-            labelStyle: 'ml-auto',
-        },
-    ];
+export const AdminAddUnitStructure = (): IFormComponentProperties => {
+  const { translate } = useTranslate();
+  const { createOperation } = useCrudHandler<IUnitModel>('units');
+
+  const { mutate, isLoading } = useMutate({
+    queryFn: (data) => AdminUnitsRepo.createUnit(data),
+    options: {
+      onSuccess(id: number, param: IUnitInputs) {
+        createOperation({ ...param, active: false, id });
+        showNotification('Unit added successfully');
+      },
+      onError(formattedError) {
+        showNotification(formattedError?.message ?? 'Some thing went wrong', 'error');
+      },
+    },
+  });
+
+  const handelOnSubmit = (data: IUnitInputs) => mutate(data);
+
+  const button: AdminButtonContainerProps = {
+    text: translate(TRANSLATE.ADD),
+    icon: 'fi-rr-plus',
+    isLoading,
+  };
+
+  const defaultValues: IUnitInputs = {
+    unitname: '',
+  };
+
+  return {
+    inputs: AdminUnitsInputsStructure(),
+    button,
+    onSubmit: handelOnSubmit,
+    defaultValues: defaultValues as any,
+  };
 };
-
-const handelFormProperties = (
-    translate: (text: string | string[], option?: translateOptions) => string,
-    isEdit?: boolean
-): IFormComponentProperties => {
-    return {
-        inputs: inputsItems(translate),
-        button: {
-            text: translate(isEdit ? TRANSLATE.EDIT : TRANSLATE.ADD),
-            icon: isEdit ? 'fi-rr-pencil' : 'fi-rr-plus',
-        },
-        containerClassName: '',
-        childClassnames: '',
-        onSubmit: (data: IDefaultValuesProperties) => {
-            console.log(data);
-        },
-        defaultValues: {
-            nameEn: '',
-            nameAr: '',
-            price: '',
-            image: '',
-        },
-    };
-};
-
-export const AdminAddUnitFeatureFormStructure =
-    (): IFormComponentProperties => {
-        const { translate } = useTranslate();
-        return handelFormProperties(translate);
-    };
-
-export const AdminEditUnitModalFormStructure = (): IFormComponentProperties => {
-    const { translate } = useTranslate();
-
-    return {
-        ...handelFormProperties(translate, true),
-        onSubmit: (data: IDefaultValuesProperties) => {},
-        defaultValues: {
-            nameEn: 'Dummy Name',
-            nameAr: 'اسم وهمي',
-            price: '100',
-            image: '',
-        },
-    };
-};
-/* #endregion */

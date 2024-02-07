@@ -17,75 +17,75 @@ import AdminEditBranchModal from '../../pages/branches/modal/AdminEditBranchModa
 import AdminEditDiscountModal from '../../pages/discounts/modal/AdminEditDiscountModal';
 import AdminEditComboOfferModal from '../../pages/comboOffers/modal/AdminEditComboOfferModal';
 import { AdminAddCustomerModal } from '../../pages/customers/modal/AdminAddCustomerModal';
+import { AdminAddUnitModal } from '../../pages/units/modal/AdminAddUnitModal';
 
 export const AdminModalComponentsStructure = {
-    adminEditUnitModal: <AdminEditUnitModal />,
-    adminDeleteUnitModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this unit?" />
-    ),
-    adminEditStoreModal: <AdminEditStoreModal />,
-    adminDeleteStoreModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this store?" />
-    ),
-    adminEditGroupModal: <AdminEditGroupModal />,
-    adminDeleteGroupModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this group?" />
-    ),
-    adminEditProductModal: <AdminEditProductModal />,
-    adminDeleteProductModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this product?" />
-    ),
-    adminEditComboOfferModal: <AdminEditComboOfferModal />,
-    adminDeleteComboOfferModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this combo offer?" />
-    ),
-    adminEditAdditionModal: <AdminEditAdditionModal />,
-    adminDeleteAdditionModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this addition?" />
-    ),
-    adminEditTableModal: <AdminEditTableModal />,
-    adminDeleteTableModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this table?" />
-    ),
-    adminEditDeliveryModal: <AdminEditDeliveryModal />,
-    adminDeleteDeliveryModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this delivery?" />
-    ),
-    adminAddCustomerModal : <AdminAddCustomerModal />,
-    adminEditCustomerModal: <AdminEditCustomerModal />,
-    adminDeleteCustomerModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this customer?" />
-    ),
-    adminEditSupplierModal: <AdminEditSupplierModal />,
-    adminDeleteSupplierModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this supplier?" />
-    ),
-    adminEditExpensesModal: <AdminEditExpensesModal />,
-    adminDeleteExpensesModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this expenses?" />
-    ),
-    adminEditExpensesDestinationModal: <AdminEditExpensesDestinationModal />,
-    adminDeleteExpensesDestinationModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this expenses destination?" />
-    ),
-    adminEditMemberModal: <AdminEditMemberModal />,
-    adminDeleteMemberModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this member?" />
-    ),
-    adminEditTaxModal: <AdminEditTaxModal />,
-    adminDeleteTaxModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this tax?" />
-    ),
-    adminEditBranchModal: <AdminEditBranchModal />,
-    adminDeleteBranchModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this branch?" />
-    ),
-    adminEditDiscountModal: <AdminEditDiscountModal />,
-    adminDeleteDiscountModal: (
-        <AlertActionModalBodyComponent text="Are you sure you want to delete this discount?" />
-    ),
+  adminAddUnitModal: <AdminAddUnitModal />,
+  adminEditUnitModal: <AdminEditUnitModal />,
+  adminDeleteUnitModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this unit?" />
+  ),
+  adminEditStoreModal: <AdminEditStoreModal />,
+  adminDeleteStoreModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this store?" />
+  ),
+  adminEditGroupModal: <AdminEditGroupModal />,
+  adminDeleteGroupModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this group?" />
+  ),
+  adminEditProductModal: <AdminEditProductModal />,
+  adminDeleteProductModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this product?" />
+  ),
+  adminEditComboOfferModal: <AdminEditComboOfferModal />,
+  adminDeleteComboOfferModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this combo offer?" />
+  ),
+  adminEditAdditionModal: <AdminEditAdditionModal />,
+  adminDeleteAdditionModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this addition?" />
+  ),
+  adminEditTableModal: <AdminEditTableModal />,
+  adminDeleteTableModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this table?" />
+  ),
+  adminEditDeliveryModal: <AdminEditDeliveryModal />,
+  adminDeleteDeliveryModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this delivery?" />
+  ),
+  adminAddCustomerModal: <AdminAddCustomerModal />,
+  adminEditCustomerModal: <AdminEditCustomerModal />,
+  adminDeleteCustomerModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this customer?" />
+  ),
+  adminEditSupplierModal: <AdminEditSupplierModal />,
+  adminDeleteSupplierModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this supplier?" />
+  ),
+  adminEditExpensesModal: <AdminEditExpensesModal />,
+  adminDeleteExpensesModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this expenses?" />
+  ),
+  adminEditExpensesDestinationModal: <AdminEditExpensesDestinationModal />,
+  adminDeleteExpensesDestinationModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this expenses destination?" />
+  ),
+  adminEditMemberModal: <AdminEditMemberModal />,
+  adminDeleteMemberModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this member?" />
+  ),
+  adminEditTaxModal: <AdminEditTaxModal />,
+  adminDeleteTaxModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this tax?" />
+  ),
+  adminEditBranchModal: <AdminEditBranchModal />,
+  adminDeleteBranchModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this branch?" />
+  ),
+  adminEditDiscountModal: <AdminEditDiscountModal />,
+  adminDeleteDiscountModal: (
+    <AlertActionModalBodyComponent text="Are you sure you want to delete this discount?" />
+  ),
 };
 
-export type AdminModalStructureKeys = ObjectKeys<
-    typeof AdminModalComponentsStructure
->;
+export type AdminModalStructureKeys = ObjectKeys<typeof AdminModalComponentsStructure>;
