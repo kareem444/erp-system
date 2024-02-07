@@ -1,40 +1,30 @@
 import { IFormComponentProperties } from "src/common/components/FormComponent";
 import { useTranslate } from "src/common/hooks/useTranslate";
-import { AdminCustomersInputsItemsStructure } from "./AdminCustomersInputsStructure";
+import { AdminCustomersInputsStructure } from "./AdminCustomersInputsStructure";
 import { TRANSLATE } from "src/common/constants/translateConstants";
 import { IAdminCustomerInputs } from "../interfaces/AdminCustomersInterface";
 import { AdminButtonContainerProps } from "src/app/admin/components/AdminButtonContainer";
 import useEchoState from "src/common/DataHandler/hooks/client/useEchoState";
 import { EchoStateConstants } from "src/common/constants/EchoStateConstants";
 import { IAdminCustomerModel } from "src/app/admin/models/AdminCustomerModel";
-import { AsyncStateConstants } from "src/common/constants/AsyncStateConstants";
-import useAsyncState from "src/common/DataHandler/hooks/server/useAsyncState";
 import useModalReducer from "src/common/redux/modal/useModalReducer";
 import useMutate from "src/common/DataHandler/hooks/server/useMutate";
 import { AdminCustomersRepo } from "../repo/AdminCustomersRepo";
 import { showNotification } from "src/common/components/ShowNotificationComponent";
+import useCrudHandler from "src/common/hooks/useCrudHandler";
 
-export const AdminEditCustomerModalFormStructure =
+export const AdminEditCustomerStructure =
     (): IFormComponentProperties => {
         const { translate } = useTranslate();
         const { state: selectedCustomer } = useEchoState<IAdminCustomerModel>(EchoStateConstants.selectedItem)
-        const { setState } = useAsyncState<IAdminCustomerModel[]>(AsyncStateConstants.customers)
         const { closeModal } = useModalReducer()
+        const { updateOperation } = useCrudHandler<IAdminCustomerModel>('customers')
 
         const { mutate, isLoading } = useMutate({
             queryFn: data => AdminCustomersRepo.updateCustomer(data),
             options: {
                 onSuccess(_, param: IAdminCustomerInputs) {
-                    setState(prevState => {
-                        return {
-                            data: prevState?.data?.map(item => {
-                                if (item.id === selectedCustomer.id) {
-                                    return { ...item, ...param }
-                                }
-                                return item
-                            })
-                        }
-                    })
+                    updateOperation({ ...selectedCustomer, ...param })
                     showNotification('Customer updated successfully')
                     closeModal()
                 },
@@ -54,7 +44,7 @@ export const AdminEditCustomerModalFormStructure =
         };
 
         const button: AdminButtonContainerProps = {
-            text: translate(TRANSLATE.ADD),
+            text: translate(TRANSLATE.EDIT),
             icon: "fi-rr-pencil",
             isLoading
         };
@@ -75,7 +65,7 @@ export const AdminEditCustomerModalFormStructure =
         };
 
         return {
-            inputs: AdminCustomersInputsItemsStructure(),
+            inputs: AdminCustomersInputsStructure(),
             button,
             onSubmit: handelOnSubmit,
             defaultValues: defaultValues as any,

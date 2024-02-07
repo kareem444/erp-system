@@ -1,9 +1,9 @@
 import { InputComponentProps } from "src/common/components/InputComponent"
 import { TRANSLATE } from "src/common/constants/translateConstants"
 import { useTranslate } from "src/common/hooks/useTranslate"
-import { AdminCustomerInputsConstants } from "../constants/AdminCustomersConstants"
+import { AdminCustomerInputsConstants } from "../constants/AdminCustomersInputsConstants"
 
-export const AdminCustomersInputsItemsStructure = (
+export const AdminCustomersInputsStructure = (
     isEditModal = false
 ): InputComponentProps[] => {
     const { translate } = useTranslate()

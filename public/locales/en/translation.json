@@ -23,6 +23,8 @@
   "group": "Group",
   "units": "Units",
   "unit": "Unit",
+  "stores": "Stores",
+  "code": "Code",
   "products": "Products",
   "product": "Product",
   "product-list": "Products List",
@@ -114,6 +116,8 @@
   "transaction-id": "Transaction ID",
   "amount": "Amount",
   "ar": "AR",
-  "en": "ENG"
+  "en": "ENG",
+  "refresh": "Refresh",
+  "theData": "Data"
 }
 

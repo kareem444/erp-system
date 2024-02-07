@@ -37,8 +37,6 @@ export default function BranchesDetailsFeature() {
 
     const tableContent: ITableContent = {
         header: ['Name', 'Code', "Address", "Start Time", "End Time", 'Date'],
-        filter: ['Name'],
-        defaultFilterItem: 'Name',
         items: RECENT_TRANSACTIONS,
         maxStringLength: 15,
         selectors: {

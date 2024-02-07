@@ -12,17 +12,17 @@ function AdminHeaderContainer() {
                 <div className=''>
                     <label
                         htmlFor='left-sidebar-drawer'
-                        className='btn btn-primary drawer-button lg:hidden'
+                        className='btn btn-ghost bg-blue-600 text-white drawer-button lg:hidden'
                     >
                         <Bars3Icon className='h-5 inline-block w-5' />
                     </label>
-                    {title && <h1 className='text-2xl font-semibold ml-2'>{title}</h1>}
+                    {title && <h1 className='text-2xl font-semibold mx-2'>{title}</h1>}
                 </div>
 
                 <div className='order-last'>
 
                     {/* Notification icon */}
-                    <NotificationButtonComponent />
+                    {/* <NotificationButtonComponent /> */}
 
                     {/* Profile icon, opening menu on click */}
                     <HeaderDropDownMenuComponent />

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import TitleCardComponent from '../../../common/components/TitleCardComponent'
-import FilterComponent from '../../../common/components/FilterComponent'
 import {
     ITableContent,
     TableComponent
@@ -8,45 +7,36 @@ import {
 import usePageTitle from '../../../common/hooks/usePageTitle'
 import { useTranslate } from '../../../common/hooks/useTranslate'
 import { TRANSLATE } from '../../../common/constants/translateConstants'
+import useEchoState from 'src/common/DataHandler/hooks/client/useEchoState'
+import { EchoStateConstants } from 'src/common/constants/EchoStateConstants'
+import { useLocation } from 'react-router-dom'
 
 interface IAdminDetailsPageContainerProps {
     tableContent: ITableContent
     className?: string
+    onRefresh?: () => void
 }
 
 export const AdminDetailsPageContainer: React.FC<
     IAdminDetailsPageContainerProps
-> = ({ tableContent, className }) => {
-    const [searchedItems, setSearchedItems] = useState(tableContent.items)
+> = ({ tableContent, className, onRefresh }) => {
+    const { state: searchedItems, setState } = useEchoState<any[] | undefined>(EchoStateConstants.searchedItems)
     const { title } = usePageTitle()
     const { translate, isArabic } = useTranslate()
 
+    const { pathname } = useLocation()
+
     useEffect(() => {
-        setSearchedItems(tableContent.items)
-    }, [tableContent.items])
+        setState(tableContent.items)
+    }, [pathname])
 
     return (
         <TitleCardComponent
             title={ isArabic ? `${translate(TRANSLATE.DETAILS)} ${title} ` : `${title} ${translate(TRANSLATE.DETAILS)}`}
             topMargin={'h-full overflow-y-hidden flex-1' + ' ' + className}
-            TopSideButtons={
-                !!tableContent.filter && (
-                    <FilterComponent
-                        filter={{
-                            items: tableContent.filter,
-                            showFilterBadge: true,
-                            defaultFilterItem: tableContent.defaultFilterItem,
-                            showFilterDropButton: tableContent.showFilterDropDown
-                        }}
-                        update={{
-                            items: tableContent.items,
-                            onUpdateState: setSearchedItems
-                        }}
-                    />
-                )
-            }
+            onRefreshDataButtonClick={onRefresh}
         >
-            <TableComponent {...tableContent} items={searchedItems} />
+            <TableComponent {...tableContent} items={searchedItems ?? tableContent.items ?? []} />
         </TitleCardComponent>
     )
 }

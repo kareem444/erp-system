@@ -15,12 +15,11 @@ export default function SwitchThemeComponent() {
                 window.matchMedia &&
                 window.matchMedia('(prefers-color-scheme: dark)').matches
             ) {
-                setCurrentTheme('dark')
-            } else {
                 setCurrentTheme('winter')
+            } else {
+                setCurrentTheme('dark')
             }
         }
-        // 👆 false parameter is required for react project
     }, [])
 
     return (

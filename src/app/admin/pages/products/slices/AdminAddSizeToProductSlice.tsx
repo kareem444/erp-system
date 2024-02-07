@@ -91,11 +91,10 @@ const AdminAddSizeToProductSlice: FC<
                     </div>
                     <AdminButtonComponent
                         icon='fi-rr-plus'
-                        containerClassName='col-span-2'
                         disabled={result.size.length < 1 || result.price.length < 1}
                         onClick={handelOnSubmit}
                         buttonClassName={
-                            `!w-full !justify-center` +
+                            `!w-full !justify-center col-span-2` +
                             ` ` +
                             `${error.size || error.price
                                 ? 'cursor-not-allowed !my-auto'

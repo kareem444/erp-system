@@ -1,25 +1,23 @@
 import { IAdminCustomerModel } from "src/app/admin/models/AdminCustomerModel"
 import useEchoState from "src/common/DataHandler/hooks/client/useEchoState"
-import useAsyncState from "src/common/DataHandler/hooks/server/useAsyncState"
 import useMutate from "src/common/DataHandler/hooks/server/useMutate"
 import { showNotification } from "src/common/components/ShowNotificationComponent"
-import { AsyncStateConstants } from "src/common/constants/AsyncStateConstants"
 import { EchoStateConstants } from "src/common/constants/EchoStateConstants"
 import { AdminCustomersRepo } from "../repo/AdminCustomersRepo"
+import useCrudHandler from "src/common/hooks/useCrudHandler"
 
 export const OnDeleteCustomerModalDeleteEvent = (): {
     click: () => void
 } => {
     const { state: selectedCustomer } = useEchoState<IAdminCustomerModel>(EchoStateConstants.selectedItem)
-    const { state: allCustomers, setState } = useAsyncState<IAdminCustomerModel[]>(AsyncStateConstants.customers)
+    const { deleteOperation } = useCrudHandler<IAdminCustomerModel>('customers')
 
     const { mutate } = useMutate({
         queryFn: () => AdminCustomersRepo.deleteCustomer(selectedCustomer.id!),
         options: {
             onSuccess() {
-                setState({
-                    data: allCustomers?.data?.filter((customer) => customer.id !== selectedCustomer.id),
-                })
+                deleteOperation(selectedCustomer)
+                showNotification('Customer deleted successfully')
             },
             onError() {
                 showNotification('Something went wrong', 'error')

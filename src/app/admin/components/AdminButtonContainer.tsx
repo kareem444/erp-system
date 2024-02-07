@@ -1,19 +1,17 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 export interface AdminButtonContainerProps {
     buttonClassName?: string
-    containerClassName?: string
     text?: string
     icon?: string
     onClick?: () => void
     disabled?: boolean
     isLoading?: boolean
-    type?: 'button' | 'submit' | 'reset'
+    type?: 'button' | 'submit' | 'reset',
 }
 
 const AdminButtonComponent: FC<AdminButtonContainerProps> = ({
     buttonClassName,
-    containerClassName,
     text,
     icon,
     onClick,
@@ -22,27 +20,25 @@ const AdminButtonComponent: FC<AdminButtonContainerProps> = ({
     isLoading = false,
 }) => {
     return (
-        <div className={`flex justify-center ${containerClassName}`}>
-            <button
-                disabled={disabled || isLoading}
-                type={type}
-                className={
-                    'btn btn-info text-white bg-cyan-500 w-1/3 mt-5 flex ' +
-                    ((!!icon && !isLoading) && ' justify-between ') +
-                    buttonClassName +
-                    (isLoading ? ' loading ' : '')
-                }
-                onClick={onClick}
-            >
-                {!isLoading && (
-                    <>
-                        {text}
-                        {icon && <i className={`fi ${icon} mx-2`}></i>}
-                    </>
-                )}
-            </button>
-        </div>
-    )
-}
+        <button
+            disabled={disabled || isLoading}
+            type={type}
+            className={
+                'btn btn-ghost text-white bg-blue-600 hover:!bg-blue-700 w-full flex normal-case ' +
+                ((!!icon && !isLoading) ? ' justify-between ' : "") +
+                buttonClassName +
+                (isLoading ? ' loading ' : '')
+            }
+            onClick={onClick}
+        >
+            {!isLoading && (
+                <>
+                    {icon && <i className={`fi ${icon} mx-2`}></i>}
+                    {text}
+                </>
+            )}
+        </button>
+    );
+};
 
-export default AdminButtonComponent
+export default AdminButtonComponent;

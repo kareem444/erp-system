@@ -1,18 +1,19 @@
-import { lazy } from 'react'
+import { lazy } from 'react';
 
-const LoginPage = lazy(() => import('../../app/auth/pages/login'))
-const RegisterPage = lazy(() => import('../../app/auth/pages/register'))
+const LoginPage = lazy(() => import('../../app/auth/pages/login'));
+const RegisterPage = lazy(() => import('../../app/auth/pages/register'));
 const ForgotPasswordPage = lazy(
     () => import('../../app/auth/pages/forgotPassword')
-)
-const OtpPage = lazy(() => import('../../app/auth/pages/otp'))
-const LayoutContainer = lazy(() => import('../containers/LayoutContainer'))
-const DashBoardPage = lazy(() => import('../../app/admin/pages/dashboard'))
-const GroupsPage = lazy(() => import('../../app/admin/pages/groups'))
-const SalesBillsPage = lazy(() => import('../../app/admin/pages/salesBills'))
+);
+const OtpPage = lazy(() => import('../../app/auth/pages/otp'));
+const LayoutContainer = lazy(() => import('../containers/LayoutContainer'));
+const DashBoardPage = lazy(() => import('../../app/admin/pages/dashboard'));
+const GroupsPage = lazy(() => import('../../app/admin/pages/groups'));
+const SalesBillsPage = lazy(() => import('../../app/admin/pages/salesBills'));
 const BouncedSalesPage = lazy(
     () => import('../../app/admin/pages/bouncedSales')
-)
+);
+const StoresPage = lazy(() => import('../../app/admin/pages/stores'));
 const UnitsPage = lazy(() => import('../../app/admin/pages/units'))
 const ProductsPage = lazy(() => import('../../app/admin/pages/products'))
 const ComboOffersPage = lazy(() => import('../../app/admin/pages/comboOffers'))
@@ -27,126 +28,135 @@ const CustomersPage = lazy(() => import('../../app/admin/pages/customers'))
 const SuppliersPage = lazy(() => import('../../app/admin/pages/subbliers'))
 const PurchasesBillsPage = lazy(
     () => import('../../app/admin/pages/purchasesBills')
-)
+);
 const BouncedPurchasesPage = lazy(
     () => import('../../app/admin/pages/bouncedPurchases')
-)
-const ExpensesPage = lazy(() => import('../../app/admin/pages/expenses'))
-const ExpensesDestinationPage = lazy(() => import('../../app/admin/pages/expensesDestination'))
-const PaymentsMethodsPage = lazy(() => import('../../app/admin/pages/paymentsMethods'))
-const MembersPage = lazy(() => import('../../app/admin/pages/members'))
+);
+const ExpensesPage = lazy(() => import('../../app/admin/pages/expenses'));
+const ExpensesDestinationPage = lazy(
+    () => import('../../app/admin/pages/expensesDestination')
+);
+const PaymentsMethodsPage = lazy(
+    () => import('../../app/admin/pages/paymentsMethods')
+);
+const MembersPage = lazy(() => import('../../app/admin/pages/members'));
 const ProductsReportsPage = lazy(
     () => import('../../app/admin/pages/productsReports')
-)
+);
 const SalesReportsPage = lazy(
     () => import('../../app/admin/pages/salesReports')
-)
+);
 const ValueAddedReportsPage = lazy(
     () => import('../../app/admin/pages/valueAddedTaxReports')
-)
+);
 const TobaccoDutyReportsPage = lazy(
     () => import('../../app/admin/pages/tobaccoDutyReports')
-)
+);
 const PurchasesReportsPage = lazy(
     () => import('../../app/admin/pages/purchasesReports')
-)
+);
 const ExpensesReportsPage = lazy(
     () => import('../../app/admin/pages/expensesReports')
-)
+);
 const PaymentsReportsPage = lazy(
     () => import('../../app/admin/pages/paymentsReports')
-)
+);
 const DeliveryReportsPage = lazy(
     () => import('../../app/admin/pages/deliveryReports')
-)
-const SettingsPage = lazy(() => import('../../app/admin/pages/settings'))
-const BranchesPage = lazy(() => import('src/app/admin/pages/branches'))
-const RolesPage = lazy(() => import('src/app/admin/pages/roles'))
-const DiscountsPage = lazy(() => import('src/app/admin/pages/discounts'))
-const TaxesPage = lazy(() => import('src/app/admin/pages/taxes'))
-const ShiftReportsPage = lazy(() => import('src/app/admin/pages/shiftReports'))
+);
+const SettingsPage = lazy(() => import('../../app/admin/pages/settings'));
+const BranchesPage = lazy(() => import('src/app/admin/pages/branches'));
+const RolesPage = lazy(() => import('src/app/admin/pages/roles'));
+const DiscountsPage = lazy(() => import('src/app/admin/pages/discounts'));
+const TaxesPage = lazy(() => import('src/app/admin/pages/taxes'));
+const ShiftReportsPage = lazy(() => import('src/app/admin/pages/shiftReports'));
 
 const PosHomeLayoutContainer = lazy(
     () => import('src/app/pos/containers/PosHomeLayoutContainer')
-)
-const PosProductsPage = lazy(() => import('src/app/pos/pages/products'))
-const PosDeliveryPage = lazy(() => import('src/app/pos/pages/delivery'))
-const PosInvoicePage = lazy(() => import('src/app/pos/pages/invoice'))
-const PosSettingsPage = lazy(() => import('src/app/pos/pages/settings'))
-const PosTablesPage = lazy(() => import('src/app/pos/pages/tables'))
+);
+const PosProductsPage = lazy(() => import('src/app/pos/pages/products'));
+const PosDeliveryPage = lazy(() => import('src/app/pos/pages/delivery'));
+const PosInvoicePage = lazy(() => import('src/app/pos/pages/invoice'));
+const PosSettingsPage = lazy(() => import('src/app/pos/pages/settings'));
+const PosTablesPage = lazy(() => import('src/app/pos/pages/tables'));
 
 interface Route {
-    path: string
-    component: React.ComponentType<any>
+    path: string;
+    component: React.ComponentType<any>;
 }
 
 interface FullRoute extends Route {
-    fullPath: string
+    fullPath: string;
 }
 
 export interface NestedRoutes {
-    [key: string]: FullRoute
+    [key: string]: FullRoute;
 }
 
 interface Routes {
-    login: Route
-    forgotPassword: Route
-    register: Route
-    otp: Route
-    layout: Route
-    admin: NestedRoutes
+    login: Route;
+    forgotPassword: Route;
+    register: Route;
+    otp: Route;
+    layout: Route;
+    admin: NestedRoutes;
     pos: {
-        home: NestedRoutes
-        settings: FullRoute
-    }
+        home: NestedRoutes;
+        settings: FullRoute;
+    };
 }
 
 export const routes: Routes = {
     login: {
         path: '/login',
-        component: LoginPage
+        component: LoginPage,
     },
     forgotPassword: {
         path: '/forgot-password',
-        component: ForgotPasswordPage
+        component: ForgotPasswordPage,
     },
     register: {
         path: '/register',
-        component: RegisterPage
+        component: RegisterPage,
     },
     otp: {
         path: '/otp',
-        component: OtpPage
+        component: OtpPage,
     },
     layout: {
         path: '/app/*',
-        component: LayoutContainer
+        component: LayoutContainer,
     },
     admin: {
         dashboard: {
             path: '/admin/dashboard',
             fullPath: '/app/admin/dashboard',
-            component: DashBoardPage
+            component: DashBoardPage,
         },
         groups: {
             path: '/admin/groups',
             fullPath: '/app/admin/groups',
-            component: GroupsPage
+            component: GroupsPage,
         },
         units: {
             path: '/admin/units',
             fullPath: '/app/admin/units',
-            component: UnitsPage
+            component: UnitsPage,
+        },
+        stores: {
+            path: '/admin/Stores',
+            fullPath: '/app/admin/stores',
+            component: StoresPage,
         },
         products: {
             path: '/admin/products',
             fullPath: '/app/admin/products',
-            component: ProductsPage
+            component: ProductsPage,
         },
         additions: {
             path: '/admin/additions',
             fullPath: '/app/admin/additions',
-            component: AdditionsPage
+            component: AdditionsPage,
         },
         inventoryStore: {
             path: '/admin/inventory-store',
@@ -171,175 +181,174 @@ export const routes: Routes = {
         comboOffers: {
             path: '/admin/combo-offers',
             fullPath: '/app/admin/combo-offers',
-            component: ComboOffersPage
+            component: ComboOffersPage,
         },
         tables: {
             path: '/admin/tables',
             fullPath: '/app/admin/tables',
-            component: TablesPage
+            component: TablesPage,
         },
         delivery: {
             path: '/admin/delivery',
             fullPath: '/app/admin/delivery',
-            component: DeliveryPage
+            component: DeliveryPage,
         },
         customers: {
             path: '/admin/customers',
             fullPath: '/app/admin/customers',
-            component: CustomersPage
+            component: CustomersPage,
         },
         salesBills: {
             path: '/admin/sales-bills',
             fullPath: '/app/admin/sales-bills',
-            component: SalesBillsPage
+            component: SalesBillsPage,
         },
         bouncedSales: {
             path: '/admin/bounced-sales',
             fullPath: '/app/admin/bounced-sales',
-            component: BouncedSalesPage
+            component: BouncedSalesPage,
         },
         suppliers: {
             path: '/admin/suppliers',
             fullPath: '/app/admin/suppliers',
-            component: SuppliersPage
+            component: SuppliersPage,
         },
         purchasesBills: {
             path: '/admin/purchases-bills',
             fullPath: '/app/admin/purchases-bills',
-            component: PurchasesBillsPage
+            component: PurchasesBillsPage,
         },
         bouncedPurchases: {
             path: '/admin/bounced-purchases',
             fullPath: '/app/admin/bounced-purchases',
-            component: BouncedPurchasesPage
+            component: BouncedPurchasesPage,
         },
         expensesDestination: {
             path: '/admin/expenses-destinations',
             fullPath: '/app/admin/expenses-destinations',
-            component: ExpensesDestinationPage
+            component: ExpensesDestinationPage,
         },
         expenses: {
             path: '/admin/expenses',
             fullPath: '/app/admin/expenses',
-            component: ExpensesPage
+            component: ExpensesPage,
         },
         productsReports: {
             path: '/admin/products-reports',
             fullPath: '/app/admin/products-reports',
-            component: ProductsReportsPage
+            component: ProductsReportsPage,
         },
         salesReports: {
             path: '/admin/sales-reports',
             fullPath: '/app/admin/sales-reports',
-            component: SalesReportsPage
+            component: SalesReportsPage,
         },
         valueAddedReports: {
             path: '/admin/value-added-reports',
             fullPath: '/app/admin/value-added-reports',
-            component: ValueAddedReportsPage
+            component: ValueAddedReportsPage,
         },
         tobaccoDutyReports: {
             path: '/admin/tobacco-duty-reports',
             fullPath: '/app/admin/tobacco-duty-reports',
-            component: TobaccoDutyReportsPage
+            component: TobaccoDutyReportsPage,
         },
         purchasesReports: {
             path: '/admin/purchases-reports',
             fullPath: '/app/admin/purchases-reports',
-            component: PurchasesReportsPage
+            component: PurchasesReportsPage,
         },
         expensesReports: {
             path: '/admin/expenses-reports',
             fullPath: '/app/admin/expenses-reports',
-            component: ExpensesReportsPage
+            component: ExpensesReportsPage,
         },
         paymentsReports: {
             path: '/admin/payments-reports',
             fullPath: '/app/admin/payments-reports',
-            component: PaymentsReportsPage
+            component: PaymentsReportsPage,
         },
         deliveryReports: {
             path: '/admin/delivery-reports',
             fullPath: '/app/admin/delivery-reports',
-            component: DeliveryReportsPage
+            component: DeliveryReportsPage,
         },
         shiftReports: {
             path: '/admin/shift-reports',
             fullPath: '/app/admin/shift-reports',
-            component: ShiftReportsPage
+            component: ShiftReportsPage,
         },
         members: {
             path: '/admin/members',
             fullPath: '/app/admin/members',
-            component: MembersPage
+            component: MembersPage,
         },
         roles: {
             path: '/admin/roles',
             fullPath: '/app/admin/roles',
-            component: RolesPage
+            component: RolesPage,
         },
         branches: {
             path: '/admin/branches',
             fullPath: '/app/admin/branches',
-            component: BranchesPage
+            component: BranchesPage,
         },
         discounts: {
             path: '/admin/discounts',
             fullPath: '/app/admin/discounts',
-            component: DiscountsPage
+            component: DiscountsPage,
         },
         taxes: {
             path: '/admin/taxes',
             fullPath: '/app/admin/taxes',
-            component: TaxesPage
+            component: TaxesPage,
         },
         paymentsMethods: {
             path: '/admin/payments-methods',
             fullPath: '/app/admin/payments-methods',
-            component: PaymentsMethodsPage
+            component: PaymentsMethodsPage,
         },
         settings: {
             path: '/admin/settings',
             fullPath: '/app/admin/settings',
-            component: SettingsPage
-        }
+            component: SettingsPage,
+        },
     },
     pos: {
         home: {
             homeLayout: {
                 path: '/pos/home/*',
                 fullPath: '/app/pos/home/*',
-                component: PosHomeLayoutContainer
+                component: PosHomeLayoutContainer,
             },
             products: {
                 path: '/products',
                 fullPath: '/app/pos/home/products',
-                component: PosProductsPage
+                component: PosProductsPage,
             },
             tables: {
                 path: '/tables',
                 fullPath: '/app/pos/home/tables',
-                component: PosTablesPage
+                component: PosTablesPage,
             },
             delivery: {
                 path: '/delivery',
                 fullPath: '/app/pos/home/delivery',
-                component: PosDeliveryPage
+                component: PosDeliveryPage,
             },
             invoice: {
                 path: '/invoice',
                 fullPath: '/app/pos/home/invoice',
-                component: PosInvoicePage
-            }
+                component: PosInvoicePage,
+            },
         },
         settings: {
             path: '/pos/settings',
             fullPath: '/app/pos/settings',
-            component: PosSettingsPage
-        }
-    }
-}
-
+            component: PosSettingsPage,
+        },
+    },
+};
 
 // clientStatementsReports: {
 //     path: '/admin/clients-statements-reports',
