@@ -12,9 +12,6 @@ const InventorySelector = () => {
         itemGroup: { name: 'Choose...', id: 0 }
 
     })
-    console.log('yea storrrrrrre', result?.store.id);
-    console.log('yea item', result?.itemGroup.id);
-
 
     return (
         

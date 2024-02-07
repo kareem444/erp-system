@@ -112,7 +112,6 @@ export const TRANSLATE = {
     SUPPLIERS_REPORTS: 'suppliers-reports',
     SALES: 'sales',
     SALES_BILLS: 'sales-bills',
-    STORE: 'store',
     ITEMS_GROUPS: 'item-groups',
     Date: 'date',
     AR: 'ar',

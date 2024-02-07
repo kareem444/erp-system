@@ -17,6 +17,7 @@ interface AdminAddAndSearchContainerProps {
   addModalComponent?: ModalComponentsKeys;
   addModalSize?: IModalSizes;
   filter?: IFilterProps;
+  formatTitle?: 'none' | 's' | 'es';
 }
 
 const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
@@ -25,6 +26,7 @@ const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
   addModalComponent,
   addModalSize = "3xl",
   filter,
+  formatTitle = "s",
 }) => {
   const { titleWithoutLetterS } = usePageTitle();
   const { translate, isArabic } = useTranslate();
@@ -52,7 +54,7 @@ const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
             icon="fi-rr-plus"
             onClick={
               !!addModalComponent
-                ? () => openAddModal(addModalComponent, { size: addModalSize })
+                ? () => openAddModal(addModalComponent, { size: addModalSize, formatTitle })
                 : undefined
             }
           />

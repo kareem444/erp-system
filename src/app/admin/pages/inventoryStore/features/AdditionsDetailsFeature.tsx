@@ -41,13 +41,11 @@ export default function AdditionsDetailsFeature() {
     const tableContent: ITableContent = {
         header: [`${translate(TRANSLATE.STORE)}`, `${translate(TRANSLATE.ITEMS_GROUPS)}`, `${translate(TRANSLATE.Date)}`],
         items: RECENT_TRANSACTIONS,
-        showFilterDropDown: true,
-        filter: ['Store', 'Item-groups'],
         selectors: {
             ItemGroups: (item: any) => item['item-groups'],
             Date: (item: any) => moment(item['date']).format('D MMM'),
         },
-       storeSelector: (item: any) => item['store'],
+       nameSelector: (item: any) => item['store'],
         // buttons: {
         //     onEdit: (item: any) => openEditAdditionModal(),
         //     onDelete: (item: any) => openDeleteAdditionModal(),

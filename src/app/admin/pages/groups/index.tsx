@@ -1,12 +1,11 @@
-import AddGroupFeature from "./features/AddGroupFeature"
-import GroupsDetailsFeature from "./features/GroupsDetailsFeature"
+import AddGroupFeature from "./features/AdminAddAndSearchGroupFeature"
+import AdminGroupDetailsFeature from "./features/AdminGroupsDetailsFeature"
 
 function GroupsPage() {
     return (
         <>
             <AddGroupFeature />
-            <div className='divider my-2 w-1/4 collapse-open mx-auto'></div>
-            <GroupsDetailsFeature />
+            <AdminGroupDetailsFeature />
         </>
     )
 }

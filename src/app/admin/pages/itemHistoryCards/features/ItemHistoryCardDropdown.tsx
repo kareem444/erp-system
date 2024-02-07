@@ -10,7 +10,7 @@ const ItemHistoryCardDropdown = () => {
     const [result, setResult] = useState<any>({
         item: { name: 'Choose...', id: 0 },
     })
-    console.log('yea storrrrrrre', result?.item.id);
+
     const [dateValue, setDateValue] = useState({
         startDate:new Date(),
         endDate: new Date()
@@ -24,10 +24,10 @@ const ItemHistoryCardDropdown = () => {
                     onChange={
                         (newValue) => {
                             if(newValue){
-                                console.log(typeof(newValue?.startDate));
+                              
                            setDateValue({ startDate: new Date(newValue?.startDate?.toString()?? ''), endDate : new Date(newValue?.endDate?.toString()?? '') })
                         }
-                            console.log("datepickerValue:", newValue);
+                            
                         }
                     }
                     containerClassName=" "

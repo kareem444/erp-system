@@ -25,7 +25,7 @@ const itemHistoryCardsPage = lazy(() => import('../../app/admin/pages/itemHistor
 const TablesPage = lazy(() => import('../../app/admin/pages/tables'))
 const DeliveryPage = lazy(() => import('../../app/admin/pages/delivary'))
 const CustomersPage = lazy(() => import('../../app/admin/pages/customers'))
-const SuppliersPage = lazy(() => import('../../app/admin/pages/subbliers'))
+const SuppliersPage = lazy(() => import('../../app/admin/pages/suppliers'))
 const PurchasesBillsPage = lazy(
     () => import('../../app/admin/pages/purchasesBills')
 );

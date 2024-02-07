@@ -7,7 +7,7 @@ import AdminEditAdditionModal from '../../pages/additions/modal/AdminEditAdditio
 import AdminEditTableModal from '../../pages/tables/modal/AdminEditTableModal'
 import AdminEditDeliveryModal from '../../pages/delivary/modal/AdminEditDeliveryModal'
 import AdminEditCustomerModal from '../../pages/customers/modal/AdminEditCustomerModal'
-import AdminEditSupplierModal from '../../pages/subbliers/modal/AdminEditSupplierModal'
+import AdminEditSupplierModal from '../../pages/suppliers/modal/AdminEditSupplierModal'
 import AdminEditExpensesModal from '../../pages/expenses/modal/AdminEditExpensesModal'
 import AdminEditExpensesDestinationModal from '../../pages/expensesDestination/modal/AdminEditExpensesDestinationModal'
 import AdminEditMemberModal from '../../pages/members/modal/AdminEditMemberModal'
@@ -16,18 +16,23 @@ import AdminEditBranchModal from '../../pages/branches/modal/AdminEditBranchModa
 import AdminEditDiscountModal from '../../pages/discounts/modal/AdminEditDiscountModal'
 import AdminEditComboOfferModal from '../../pages/comboOffers/modal/AdminEditComboOfferModal'
 import PrintDisbursementPermissionModal from '../../pages/inventoryDisbursement/modal/PrintDisbursementPermissionModal'
-import AdminEditStoreModal from '../../pages/stores/modal/AdminEditStoreModal';
 import { AdminAddCustomerModal } from '../../pages/customers/modal/AdminAddCustomerModal';
+import { AdminAddGroupModal } from '../../pages/groups/modal/AdminAddGroupModal';
+import { AdminAddStoreModal } from '../../pages/stores/modal/AdminAddStoreModal';
+import AdminEditStoreModal from '../../pages/stores/modal/AdminEditStoreModal';
+import { AdminAddSupplierModal } from '../../pages/suppliers/modal/AdminAddSupplierModal'
 
 export const AdminModalComponentsStructure = {
     adminEditUnitModal: <AdminEditUnitModal />,
     adminDeleteUnitModal: (
         <AlertActionModalBodyComponent text="Are you sure you want to delete this unit?" />
     ),
+    adminAddStoreModal : <AdminAddStoreModal />,
     adminEditStoreModal: <AdminEditStoreModal />,
     adminDeleteStoreModal: (
         <AlertActionModalBodyComponent text="Are you sure you want to delete this store?" />
     ),
+    adminAddGroupModal : <AdminAddGroupModal />,
     adminEditGroupModal: <AdminEditGroupModal />,
     adminDeleteGroupModal: (
         <AlertActionModalBodyComponent text="Are you sure you want to delete this group?" />
@@ -58,6 +63,7 @@ export const AdminModalComponentsStructure = {
     adminDeleteCustomerModal: (
         <AlertActionModalBodyComponent text="Are you sure you want to delete this customer?" />
     ),
+    adminAddSupplierModal : <AdminAddSupplierModal />,
     adminEditSupplierModal: <AdminEditSupplierModal />,
     adminDeleteSupplierModal: (
         <AlertActionModalBodyComponent text="Are you sure you want to delete this supplier?" />
