@@ -203,6 +203,10 @@ export const AdminDrawerRoutes: SideBarRoute[] = [
         path: routes.admin.branches.fullPath,
       },
       {
+        name: 'currency',
+        path: routes.admin.currency.fullPath,
+      },
+      {
         name: 'discounts',
         path: routes.admin.discounts.fullPath,
       },

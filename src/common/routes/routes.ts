@@ -21,6 +21,7 @@ const AdditionsPage = lazy(() => import('../../app/admin/pages/additions'));
 const TablesPage = lazy(() => import('../../app/admin/pages/tables'));
 const DeliveryPage = lazy(() => import('../../app/admin/pages/delivary'));
 const CustomersPage = lazy(() => import('../../app/admin/pages/customers'));
+const CurrencysPage = lazy(() => import('../../app/admin/pages/currency'));
 const SuppliersPage = lazy(() => import('../../app/admin/pages/subbliers'));
 const PurchasesBillsPage = lazy(
     () => import('../../app/admin/pages/purchasesBills')
@@ -173,6 +174,11 @@ export const routes: Routes = {
             path: '/admin/customers',
             fullPath: '/app/admin/customers',
             component: CustomersPage,
+        },
+        currency: {
+            path: '/admin/cuurency',
+            fullPath: '/app/admin/cuurency',
+            component: CurrencysPage,
         },
         salesBills: {
             path: '/admin/sales-bills',

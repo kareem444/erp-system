@@ -6,14 +6,16 @@ import { useTranslate } from "../hooks/useTranslate";
 function TrComponent({
     isArabic,
     children,
+    className
 }: {
     isArabic: boolean;
     children?: ReactNode;
+    className?: string;
 }) {
     return (
         <td
             className={
-                "!z-0 capitalize" +
+                "!z-0 capitalize" + " " + className +
                 " " +
                 (isArabic
                     ? "first-of-type:rounded-tr-md first-of-type:rounded-tl-none last-of-type:rounded-tl-md last-of-type:rounded-tr-none"
@@ -97,7 +99,7 @@ export const TableComponent: React.FC<ITableContent> = ({
                                 </TrComponent>
                             );
                         })}
-                        {buttons && <TrComponent isArabic={isArabic} />}
+                        {buttons && <TrComponent isArabic={isArabic} className={"sticky !z-1" + " " + (isArabic ? "left-0" : "right-0")} />}
                     </tr>
                 </thead>
                 <tbody>
@@ -144,7 +146,7 @@ export const TableComponent: React.FC<ITableContent> = ({
                                     );
                                 })}
                                 {buttons && (
-                                    <td>
+                                    <td className={"sticky !z-1" + " " + (isArabic ? "left-0" : "right-0")}>
                                         <div className="flex justify-end">
                                             <TableButtonsComponent {...handelButtons(l)} item={l} />
                                         </div>

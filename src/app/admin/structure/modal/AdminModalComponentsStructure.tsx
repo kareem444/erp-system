@@ -17,6 +17,8 @@ import AdminEditBranchModal from '../../pages/branches/modal/AdminEditBranchModa
 import AdminEditDiscountModal from '../../pages/discounts/modal/AdminEditDiscountModal';
 import AdminEditComboOfferModal from '../../pages/comboOffers/modal/AdminEditComboOfferModal';
 import { AdminAddCustomerModal } from '../../pages/customers/modal/AdminAddCustomerModal';
+import { AdminAddCurrencyModal } from '../../pages/currency/modal/AdminAddCurrencyModal';
+import AdminEditCurrencyModal from '../../pages/currency/modal/AdminEditCurrencyModal';
 
 export const AdminModalComponentsStructure = {
     adminEditUnitModal: <AdminEditUnitModal />,
@@ -55,6 +57,11 @@ export const AdminModalComponentsStructure = {
     adminEditCustomerModal: <AdminEditCustomerModal />,
     adminDeleteCustomerModal: (
         <AlertActionModalBodyComponent text="Are you sure you want to delete this customer?" />
+    ),
+    adminAddCurrencyModal : <AdminAddCurrencyModal />,
+    adminEditCurrencyModal: <AdminEditCurrencyModal />,
+    adminDeleteCurrencyModal: (
+        <AlertActionModalBodyComponent text="Are you sure you want to delete this currency?" />
     ),
     adminEditSupplierModal: <AdminEditSupplierModal />,
     adminDeleteSupplierModal: (
