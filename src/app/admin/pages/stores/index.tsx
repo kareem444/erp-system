@@ -1,14 +1,13 @@
-import AddStoreFeature from './features/AddStoreFeatures';
-import StoresDetailsFeature from './features/StoresDetailsFeature';
+import AdminAddAndSearchStoreFeature from "./features/AdminAddAndSearchStoreFeature"
+import AdminStoreDetailsFeature from "./features/AdminStoresDetailsFeature"
 
 function StoresPage() {
     return (
         <>
-            <AddStoreFeature />
-            <div className="divider my-2 w-1/4 collapse-open mx-auto"></div>
-            <StoresDetailsFeature />
+            <AdminAddAndSearchStoreFeature />
+            <AdminStoreDetailsFeature />
         </>
-    );
+    )
 }
 
-export default StoresPage;
+export default StoresPage

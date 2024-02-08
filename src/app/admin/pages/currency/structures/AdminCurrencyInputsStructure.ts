@@ -28,7 +28,6 @@ export const AdminCurrencyInputsStructure = (
         {
             labelTitle: "Is Default",
             type: "dropdownSearch",
-            containerStyle: "!col-start-7",
             validatedInput: {
                 name: AdminCurrencyInputsConstants.isdefault,
             },

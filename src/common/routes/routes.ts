@@ -12,7 +12,6 @@ const SalesBillsPage = lazy(() => import('../../app/admin/pages/salesBills'));
 const BouncedSalesPage = lazy(
     () => import('../../app/admin/pages/bouncedSales')
 );
-const UnitsPage = lazy(() => import('../../app/admin/pages/units'));
 const StoresPage = lazy(() => import('../../app/admin/pages/stores'));
 const ProductsPage = lazy(() => import('../../app/admin/pages/products'));
 const ComboOffersPage = lazy(() => import('../../app/admin/pages/comboOffers'));
@@ -21,7 +20,12 @@ const TablesPage = lazy(() => import('../../app/admin/pages/tables'));
 const DeliveryPage = lazy(() => import('../../app/admin/pages/delivary'));
 const CustomersPage = lazy(() => import('../../app/admin/pages/customers'));
 const CurrencysPage = lazy(() => import('../../app/admin/pages/currency'));
-const SuppliersPage = lazy(() => import('../../app/admin/pages/subbliers'));
+const UnitsPage = lazy(() => import('../../app/admin/pages/units'))
+const inventoryStorePage = lazy(() => import('../../app/admin/pages/inventoryStore'))
+const addToInventoryPage = lazy(() => import('../../app/admin/pages/addToInventory'))
+const inventoryDisbursementPage = lazy(() => import('../../app/admin/pages/inventoryDisbursement'))
+const itemHistoryCardsPage = lazy(() => import('../../app/admin/pages/itemHistoryCards'))
+const SuppliersPage = lazy(() => import('../../app/admin/pages/suppliers'))
 const PurchasesBillsPage = lazy(
     () => import('../../app/admin/pages/purchasesBills')
 );
@@ -156,6 +160,26 @@ export const routes: Routes = {
             path: '/admin/additions',
             fullPath: '/app/admin/additions',
             component: AdditionsPage,
+        },
+        inventoryStore: {
+            path: '/admin/inventory-store',
+            fullPath: '/app/admin/inventory-store',
+            component: inventoryStorePage
+        },
+        addToInventory: {
+            path: '/admin/add-to-inventory',
+            fullPath: '/app/admin/add-to-inventory',
+            component: addToInventoryPage
+        },
+        inventoryDisbursement: {
+            path: '/admin/inventory-disbursement',
+            fullPath: '/app/admin/inventory-disbursement',
+            component: inventoryDisbursementPage
+        },
+        itemHistoryCards: {
+            path: '/admin/item-history-cards',
+            fullPath: '/app/admin/item-history-cards',
+            component: itemHistoryCardsPage
         },
         comboOffers: {
             path: '/admin/combo-offers',

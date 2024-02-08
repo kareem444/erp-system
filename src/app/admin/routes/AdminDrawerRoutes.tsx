@@ -8,6 +8,7 @@ import { TRANSLATE } from '../../../common/constants/translateConstants';
 const iconClasses = `h-6 w-6`
 const submenuIconClasses = `h-5 w-5`
 
+
 export interface SideBarRoute {
   path: string;
   name: string;
@@ -41,6 +42,22 @@ export const AdminDrawerRoutes: SideBarRoute[] = [
       {
         path: routes.admin.products.fullPath,
         name: 'products',
+      },
+      {
+        path: routes.admin.inventoryStore.fullPath,
+        name: 'inventory-store',
+      },
+      {
+        path: routes.admin.addToInventory.fullPath,
+        name: 'add-to-inventory',
+      },
+      {
+        path: routes.admin.inventoryDisbursement.fullPath,
+        name: 'inventory-disbursement',
+      },
+      {
+        path: routes.admin.itemHistoryCards.fullPath,
+        name: 'item-history-cards',
       },
       {
         path: routes.admin.additions.fullPath,

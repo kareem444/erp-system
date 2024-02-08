@@ -1,6 +1,10 @@
 import { OnEditComboOfferModalCloseEvent } from '../../pages/comboOffers/modal/AdminEditComboOfferModalEvents'
 import { OnDeleteCurrencyModalDeleteEvent } from '../../pages/currency/structures/AdminDeleteCurrencyEventStructure'
 import { OnDeleteCustomerModalDeleteEvent } from '../../pages/customers/structures/AdminDeleteCustomerEventStructure'
+import { OnDeleteGroupModalDeleteEvent } from '../../pages/groups/structures/AdminDeleteGroupEventStructure'
+import { OnDeleteStoreModalDeleteEvent } from '../../pages/stores/structures/AdminDeleteStoreEventStructure'
+import { OnDeleteSupplierModalDeleteEvent } from '../../pages/suppliers/structures/AdminDeleteSupplierEventStructure'
+
 import {
   OnDeleteProductModalDeleteEvent,
   OnEditProductModalCloseEvent,
@@ -15,4 +19,7 @@ export const AdminModalEventsStructure = {
   onDeleteCustomerModalDelete: OnDeleteCustomerModalDeleteEvent,
   onDeleteCurrencyModalDelete: OnDeleteCurrencyModalDeleteEvent,
   onDeleteUnitModalDelete: OnDeleteUnitModalDeleteEvent,
-};
+  onDeleteGroupModalDelete: OnDeleteGroupModalDeleteEvent,
+  onDeleteStoreModalDelete: OnDeleteStoreModalDeleteEvent,
+  onDeleteSupplierModalDelete: OnDeleteSupplierModalDeleteEvent,
+}
