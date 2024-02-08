@@ -1,6 +1,6 @@
 import { FilterItem } from 'src/common/components/FilterComponent';
-import { UnitInputsConstants } from './UnitInputsConstants';
-import { UnitTableConstants } from './UnitTableConstants';
+import { UnitInputsConstants } from './AdminUnitInputsConstants';
+import { UnitTableConstants } from './AdminUnitTableConstants';
 
 export const UnitFilterConstants: [FilterItem, ...FilterItem[]] = [
   {

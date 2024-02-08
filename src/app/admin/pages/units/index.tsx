@@ -1,5 +1,5 @@
 import AdminAddAndSearchUnitFeature from "./features/AddUnitFeature"
-import UnitsDetailsFeature from "./features/UnitsDetailsFeature"
+import UnitsDetailsFeature from "./features/AdminUnitsDetailsFeature"
 
 function UnitsPage() {
     return (

@@ -4,17 +4,17 @@ import useEchoState from 'src/common/DataHandler/hooks/client/useEchoState';
 import useFetch from 'src/common/DataHandler/hooks/server/useFetch';
 import { AsyncStateConstants } from 'src/common/constants/AsyncStateConstants';
 import { EchoStateConstants } from 'src/common/constants/EchoStateConstants';
-import { AdminUnitsRepo } from '../repo/UnitRepo';
+import { AdminUnitsRepo } from '../repo/AdminUnitRepo';
 import { showNotification } from 'src/common/components/ShowNotificationComponent';
 import { ITableContent } from 'src/common/components/TableComponent';
-import { IUnitModel } from 'src/app/admin/models/UnitModel';
-import { UnitTableHeaderConstants } from '../constants/UnitTableConstants';
+import { IAdminUnitModel } from 'src/app/admin/models/AdminUnitModel';
+import { UnitTableHeaderConstants } from '../constants/AdminUnitTableConstants';
 
 export const AdminGetUnitStructure = (): IAdminDetailsStatusContainerProps => {
   const { openEditModal, openDeleteModal } = AdminModalActionsStructure();
   const { setState } = useEchoState(EchoStateConstants.selectedItem);
 
-  const { data, isLoading, isError, query } = useFetch<IUnitModel[]>({
+  const { data, isLoading, isError, query } = useFetch<IAdminUnitModel[]>({
     key: AsyncStateConstants.units,
     queryFn: () => AdminUnitsRepo.getUnits(),
     options: {
@@ -28,13 +28,13 @@ export const AdminGetUnitStructure = (): IAdminDetailsStatusContainerProps => {
     header: UnitTableHeaderConstants,
     items: data || [],
     selectors: {},
-    nameSelector: (item: IUnitModel) => item.unitname,
+    nameSelector: (item: IAdminUnitModel) => item.unitname,
     buttons: {
-      onEdit: (item: IUnitModel) => {
+      onEdit: (item: IAdminUnitModel) => {
         setState(item);
         openEditModal('adminEditUnitModal');
       },
-      onDelete: (item: IUnitModel) => {
+      onDelete: (item: IAdminUnitModel) => {
         setState(item);
         openDeleteModal('adminDeleteUnitModal', 'onDeleteUnitModalDelete');
       },

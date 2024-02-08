@@ -1,5 +1,5 @@
 import AdminAddAndSearchContainer from 'src/app/admin/containers/AdminAddAndSearchContainer';
-import { UnitFilterConstants } from '../constants/UnitFilterConstants';
+import { UnitFilterConstants } from '../constants/AdminUnitFilterConstants';
 
 export default function AdminAddAndSearchUnitFeature() {
   return (

@@ -1,8 +1,8 @@
 import AdminDetailsStatusContainer from 'src/app/admin/containers/AdminDetailsStatusContainer';
 import { AdminGetUnitStructure } from '../structures/AdminGetUnitStructure';
 
-const AdminCustomerDetailsFeature = () => {
+const AdminUnitsDetailsFeature = () => {
   return <AdminDetailsStatusContainer {...AdminGetUnitStructure()} />;
 };
 
-export default AdminCustomerDetailsFeature;
+export default AdminUnitsDetailsFeature;

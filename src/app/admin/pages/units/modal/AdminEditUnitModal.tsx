@@ -1,7 +1,7 @@
 import FormComponent from 'src/common/components/FormComponent';
 import { AdminEditUnitStructure } from '../structures/AdminEditUnitStructure';
 
-const AdminEditCustomerModal = () => {
+const AdminEditUnitsModal = () => {
   return (
     <>
       <FormComponent {...AdminEditUnitStructure()} />
@@ -9,4 +9,4 @@ const AdminEditCustomerModal = () => {
   );
 };
 
-export default AdminEditCustomerModal;
+export default AdminEditUnitsModal;
