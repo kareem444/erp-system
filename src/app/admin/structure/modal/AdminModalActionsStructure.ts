@@ -14,7 +14,7 @@ const AdminModalActionsStructure = () => {
 
     const { translate } = useTranslate()
 
-    const handelTitle = (formatTitle: 'none' | 's' | 'es') => {
+    const handelTitle = (formatTitle: 'none' | 's' | 'es' = 's') => {
         switch (formatTitle) {
             case 's':
                 return titleWithoutLetterS
@@ -44,7 +44,7 @@ const AdminModalActionsStructure = () => {
                 modalComponent,
                 size: size ?? '3xl',
                 title: {
-                    text: title ?? `${translate(TRANSLATE.ADD)} ${handelTitle(formatTitle ?? 's')}`
+                    text: title ?? `${translate(TRANSLATE.ADD)} ${handelTitle(formatTitle)}`
                 },
                 onClose
             })
@@ -67,7 +67,7 @@ const AdminModalActionsStructure = () => {
                 modalComponent,
                 size: size ?? '3xl',
                 title: {
-                    text: title ?? `${translate(TRANSLATE.EDIT)} ${handelTitle(formatTitle ?? 'es')}`
+                    text: title ?? `${translate(TRANSLATE.EDIT)} ${handelTitle(formatTitle)}`
                 },
                 onClose
             })
@@ -91,7 +91,7 @@ const AdminModalActionsStructure = () => {
                 modalComponent,
                 size: size ?? 'sm',
                 title: {
-                    text: title ?? `${translate(TRANSLATE.DELETE)} ${handelTitle(formatTitle ?? 'es')}`
+                    text: title ?? `${translate(TRANSLATE.DELETE)} ${handelTitle(formatTitle)}`
                 },
                 closeButton: {
                     showCloseButton: true

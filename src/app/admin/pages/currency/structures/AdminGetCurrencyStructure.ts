@@ -41,6 +41,7 @@ export const AdminGetCurrencyStructure = (): IAdminDetailsStatusContainerProps =
                 openDeleteModal(
                     "adminDeleteCurrencyModal",
                     "onDeleteCurrencyModalDelete"
+                    , { formatTitle: "none" }
                 );
             },
         },
