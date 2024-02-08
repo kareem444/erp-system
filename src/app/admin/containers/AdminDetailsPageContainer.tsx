@@ -22,7 +22,7 @@ export const AdminDetailsPageContainer: React.FC<
 > = ({ tableContent, className, onRefresh }) => {
     const { state: searchedItems, setState } = useEchoState<any[] | undefined>(EchoStateConstants.searchedItems)
     const { title } = usePageTitle()
-    const { translate } = useTranslate()
+    const { translate, isArabic } = useTranslate()
 
     const { pathname } = useLocation()
 
@@ -32,7 +32,7 @@ export const AdminDetailsPageContainer: React.FC<
 
     return (
         <TitleCardComponent
-            title={`${title} ${translate(TRANSLATE.DETAILS)}`}
+            title={ isArabic ? `${translate(TRANSLATE.DETAILS)} ${title} ` : `${title} ${translate(TRANSLATE.DETAILS)}`}
             topMargin={'h-full overflow-y-hidden flex-1' + ' ' + className}
             onRefreshDataButtonClick={onRefresh}
         >
