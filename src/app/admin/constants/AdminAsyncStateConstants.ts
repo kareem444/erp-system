@@ -1,4 +1,5 @@
 export const AdminAsyncStateConstants = {
     customers: 'customers',
-    currency :'currency'
+    currency :'currency',
+    units: 'units',
 }

@@ -4,19 +4,19 @@ import useEchoState from 'src/common/DataHandler/hooks/client/useEchoState';
 import useFetch from 'src/common/DataHandler/hooks/server/useFetch';
 import { AsyncStateConstants } from 'src/common/constants/AsyncStateConstants';
 import { EchoStateConstants } from 'src/common/constants/EchoStateConstants';
-import { AdminCustomersRepo } from '../repo/AdminCustomersRepo';
+import { AdminUnitsRepo } from '../repo/UnitRepo';
 import { showNotification } from 'src/common/components/ShowNotificationComponent';
 import { ITableContent } from 'src/common/components/TableComponent';
-import { IAdminCustomerModel } from 'src/app/admin/models/AdminCustomerModel';
-import { AdminCustomerTableHeaderConstants } from '../constants/AdminCustomerTableConstants';
+import { IUnitModel } from 'src/app/admin/models/UnitModel';
+import { UnitTableHeaderConstants } from '../constants/UnitTableConstants';
 
-export const AdminGetCustomerStructure = (): IAdminDetailsStatusContainerProps => {
+export const AdminGetUnitStructure = (): IAdminDetailsStatusContainerProps => {
   const { openEditModal, openDeleteModal } = AdminModalActionsStructure();
   const { setState } = useEchoState(EchoStateConstants.selectedItem);
 
-  const { data, isLoading, isError, query } = useFetch<IAdminCustomerModel[]>({
-    key: AsyncStateConstants.customers,
-    queryFn: () => AdminCustomersRepo.getCustomers(),
+  const { data, isLoading, isError, query } = useFetch<IUnitModel[]>({
+    key: AsyncStateConstants.units,
+    queryFn: () => AdminUnitsRepo.getUnits(),
     options: {
       isExecuteOnInitIfNoData: true,
       echoState: 'all',
@@ -25,22 +25,18 @@ export const AdminGetCustomerStructure = (): IAdminDetailsStatusContainerProps =
   });
 
   const tableContent: ITableContent = {
-    header: AdminCustomerTableHeaderConstants,
+    header: UnitTableHeaderConstants,
     items: data || [],
-    selectors: {
-      phone1: (item: IAdminCustomerModel) => item.phone1,
-      taxno: (item: IAdminCustomerModel) => item.taxno,
-      personaddress: (item: IAdminCustomerModel) => item.personaddress,
-    },
-    nameSelector: (item: IAdminCustomerModel) => item.customername,
+    selectors: {},
+    nameSelector: (item: IUnitModel) => item.unitname,
     buttons: {
-      onEdit: (item: IAdminCustomerModel) => {
+      onEdit: (item: IUnitModel) => {
         setState(item);
-        openEditModal('adminEditCustomerModal');
+        openEditModal('adminEditUnitModal');
       },
-      onDelete: (item: IAdminCustomerModel) => {
+      onDelete: (item: IUnitModel) => {
         setState(item);
-        openDeleteModal('adminDeleteCustomerModal', 'onDeleteCustomerModalDelete');
+        openDeleteModal('adminDeleteUnitModal', 'onDeleteUnitModalDelete');
       },
     },
   };

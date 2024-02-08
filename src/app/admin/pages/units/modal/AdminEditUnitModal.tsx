@@ -1,12 +1,12 @@
 import FormComponent from 'src/common/components/FormComponent';
-import { AdminEditUnitModalFormStructure } from '../structures/AdminAddUnitStructure';
+import { AdminEditUnitStructure } from '../structures/AdminEditUnitStructure';
 
-const AdminEditUnitModal = () => {
-    return (
-        <>
-            <FormComponent {...AdminEditUnitModalFormStructure()} />
-        </>
-    )
+const AdminEditCustomerModal = () => {
+  return (
+    <>
+      <FormComponent {...AdminEditUnitStructure()} />
+    </>
+  );
 };
 
-export default AdminEditUnitModal;
+export default AdminEditCustomerModal;
