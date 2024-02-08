@@ -25,7 +25,7 @@ const TitleCardComponent: FC<TitleCardProps> = ({
   return (
     <div
       className={
-        "card w-full p-4 sm:p-6 bg-base-100 shadow-xl border border-gray-300 dark:border-none" +
+        "card w-full p-4 sm:p-6 bg-base-100 shadow-sm border border-gray-300 dark:border-none" +
         " " +
         (topMargin || "mt-6")
       }

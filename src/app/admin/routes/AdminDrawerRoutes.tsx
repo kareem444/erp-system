@@ -149,6 +149,11 @@ export const AdminDrawerRoutes: SideBarRoute[] = [
         name: 'value-added-reports',
       },
       {
+        path: routes.admin.customerReports.fullPath,
+        // icon: <ArrowRightOnRectangleIcon className={submenuIconClasses} />,
+        name: 'customer-reports',
+      },
+      {
         path: routes.admin.tobaccoDutyReports.fullPath,
         // icon: <ArrowRightOnRectangleIcon className={submenuIconClasses} />,
         name: 'tobacco-duty-reports',

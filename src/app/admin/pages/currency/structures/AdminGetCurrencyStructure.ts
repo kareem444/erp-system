@@ -34,7 +34,7 @@ export const AdminGetCurrencyStructure = (): IAdminDetailsStatusContainerProps =
         buttons: {
             onEdit: (item: IAdminCurrencyModel) => {
                 setState(item);
-                openEditModal("adminEditCurrencyModal");
+                openEditModal("adminEditCurrencyModal", { formatTitle: "none" });
             },
             onDelete: (item: IAdminCurrencyModel) => {
                 setState(item);

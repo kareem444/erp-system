@@ -17,6 +17,7 @@ interface AdminAddAndSearchContainerProps {
   addModalComponent?: ModalComponentsKeys;
   addModalSize?: IModalSizes;
   filter?: IFilterProps;
+  formatTitle?: 'none' | 's' | 'es'
 }
 
 const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
@@ -25,11 +26,22 @@ const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
   addModalComponent,
   addModalSize = "3xl",
   filter,
+  formatTitle = 's'
 }) => {
-  const { titleWithoutLetterS } = usePageTitle();
+  const { titleWithoutLetterS, title, titleWithoutLetterES } = usePageTitle();
   const { translate, isArabic } = useTranslate();
   const { isSm } = useScreenSize();
   const { openAddModal } = AdminModalActionsStructure();
+
+  const handelTitle = () => {
+    if (formatTitle === 'none') {
+      return title
+    } else if (formatTitle === 's') {
+      return titleWithoutLetterS
+    } else {
+      return titleWithoutLetterES
+    }
+  }
 
   return (
     <>
@@ -40,7 +52,7 @@ const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
             text={
               `${translate(TRANSLATE.ADD)}` +
               " " +
-              `${!isSm ? translate(titleWithoutLetterS ?? "") : ""}`
+              `${!isSm ? translate(handelTitle() ?? "") : ""}`
             }
             buttonClassName={
               "!w-1/3 md:!w-1/4" +
@@ -52,7 +64,7 @@ const AdminAddAndSearchContainer: FC<AdminAddAndSearchContainerProps> = ({
             icon="fi-rr-plus"
             onClick={
               !!addModalComponent
-                ? () => openAddModal(addModalComponent, { size: addModalSize })
+                ? () => openAddModal(addModalComponent, { size: addModalSize, formatTitle })
                 : undefined
             }
           />

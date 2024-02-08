@@ -34,8 +34,8 @@ export const AdminCurrencyInputsStructure = (
             },
             dropDownSearchInput: {
                 data: [
-                    { value: true, text: "True" },
-                    { value: false, text: "False" },
+                    { value: true, text: "Active" },
+                    { value: false, text: "In Active" },
                 ],
                 selectors: {
                     value: "value",
@@ -44,7 +44,7 @@ export const AdminCurrencyInputsStructure = (
                 defaultSelectedValue: isEditModal
                     ? {
                         value: selectedCurrency.isdefault,
-                        text: selectedCurrency.isdefault ? "True" : "False",
+                        text: selectedCurrency.isdefault ? "Active" : "In Active",
                     }
                     : undefined,
             },

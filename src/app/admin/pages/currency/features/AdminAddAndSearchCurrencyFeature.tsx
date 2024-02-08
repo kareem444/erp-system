@@ -9,6 +9,7 @@ export default function AdminAddAndSearchCurrencyFeature() {
                 items: AdminCurrencyFilterConstants,
                 originalItemsKey: "currency",
             }}
+            formatTitle="none"
         />
     );
 }

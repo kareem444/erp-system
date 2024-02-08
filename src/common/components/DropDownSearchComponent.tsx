@@ -184,7 +184,7 @@ const DropDownSearchComponent: FC<DropDownSearchComponentProps> = ({
             {showMenu && (
                 <ul
                     className={
-                        `max-h-32 w-full bg-base-200 shadow-md z-20 rounded-lg overflow-y-scroll no-scrollbar` +
+                        `max-h-32 w-full bg-zinc-50 dark:bg-base-200 border dark:border-none shadow-md z-20 rounded-lg overflow-y-scroll no-scrollbar` +
                         ` ${menu.isMenuFloat && 'absolute'} ` +
                         ` ${menu.className} `
                     }
@@ -192,7 +192,7 @@ const DropDownSearchComponent: FC<DropDownSearchComponentProps> = ({
                     {searchedItems?.map((item, index) => (
                         <li key={index}>
                             <div
-                                className='p-2 hover:bg-base-100 cursor-pointer '
+                                className='p-2 hover:bg-blue-700 hover:text-white cursor-pointer '
                                 onClick={() => handleOnChoose(item)}
                             >
                                 {item.text}

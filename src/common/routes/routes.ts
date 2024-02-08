@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-
 const LoginPage = lazy(() => import('../../app/auth/pages/login'));
 const RegisterPage = lazy(() => import('../../app/auth/pages/register'));
 const ForgotPasswordPage = lazy(
@@ -48,6 +47,9 @@ const ValueAddedReportsPage = lazy(
 );
 const TobaccoDutyReportsPage = lazy(
     () => import('../../app/admin/pages/tobaccoDutyReports')
+);
+const CustomerReportsPage = lazy(
+    () => import('../../app/admin/pages/customerReports')
 );
 const PurchasesReportsPage = lazy(
     () => import('../../app/admin/pages/purchasesReports')
@@ -176,8 +178,8 @@ export const routes: Routes = {
             component: CustomersPage,
         },
         currency: {
-            path: '/admin/cuurency',
-            fullPath: '/app/admin/cuurency',
+            path: '/admin/currency',
+            fullPath: '/app/admin/currency',
             component: CurrencysPage,
         },
         salesBills: {
@@ -259,6 +261,11 @@ export const routes: Routes = {
             path: '/admin/shift-reports',
             fullPath: '/app/admin/shift-reports',
             component: ShiftReportsPage,
+        },
+        customerReports: {
+            path: '/admin/customer-reports',
+            fullPath: '/app/admin/customer-reports',
+            component: CustomerReportsPage,
         },
         members: {
             path: '/admin/members',

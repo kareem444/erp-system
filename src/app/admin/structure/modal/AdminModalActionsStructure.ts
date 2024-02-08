@@ -44,7 +44,7 @@ const AdminModalActionsStructure = () => {
                 modalComponent,
                 size: size ?? '3xl',
                 title: {
-                    text: title ?? `${translate(TRANSLATE.ADD)} ${handelTitle(formatTitle ?? 'es')}`
+                    text: title ?? `${translate(TRANSLATE.ADD)} ${handelTitle(formatTitle ?? 's')}`
                 },
                 onClose
             })

@@ -6,7 +6,7 @@ import { useTranslate } from "../hooks/useTranslate";
 function TrComponent({
     isArabic,
     children,
-    className
+    className,
 }: {
     isArabic: boolean;
     children?: ReactNode;
@@ -41,6 +41,7 @@ export interface ITableContent {
         onDelete?: (item: any) => void;
         onPrint?: (item: any) => void;
         onLock?: (item: any) => void;
+        onView?: (item: any) => void;
         switch?: {
             defaultValue?: boolean;
             defaultValueSelector?: (item: any) => boolean;
@@ -88,7 +89,7 @@ export const TableComponent: React.FC<ITableContent> = ({
 
     return (
         <div className="overflow-x-auto w-full no-scrollbar overflow-y-scroll h-full">
-            <table className="table w-full">
+            <table className="table w-full ">
                 <thead>
                     <tr className={isArabic ? "text-right" : "text-left"}>
                         {isDraggable && <TrComponent isArabic={isArabic} />}

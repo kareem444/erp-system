@@ -9,6 +9,7 @@ export default function AdminAddAndSearchCustomerFeature() {
                 items: AdminCustomerFilterConstants,
                 originalItemsKey: "customers",
             }}
+            formatTitle="s"
         />
     );
 }
