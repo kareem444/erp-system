@@ -28,7 +28,7 @@ export const AdminGetCurrencyStructure = (): IAdminDetailsStatusContainerProps =
         header: AdminCurrencyTableHeaderConstants,
         items: data || [],
         selectors: {
-            isDefault: (item: IAdminCurrencyModel) => item.isdefault ? "true" : "false",
+            isDefault: (item: IAdminCurrencyModel) => item.isdefault ? "Active" : "Inactive",
         },
         nameSelector: (item: IAdminCurrencyModel) => item.currencyName,
         buttons: {
