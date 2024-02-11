@@ -73,15 +73,15 @@ const SideBarSubMenuContainer: FC<SideBarSubMenuContainerProps> = ({
                                 <NavLink
                                     to={m.path}
                                     className={({ isActive }) =>
-                                        "bg-inherit active:text-slate-900 dark:active:text-gray-200"
+                                        "active:bg-inherit active:text-slate-900 dark:active:text-gray-200"
                                         +
                                         " " +
-                                        `${isActive ? "font-semibold !bg-base-200" : " font-normal"
+                                        `${isActive ? "font-semibold !bg-blue-600 text-white" : " font-normal"
                                         }`
                                     }
                                 >
                                     {m.icon} {translate(m.name)}
-                                    {location.pathname == m.path ? (
+                                    {/* {location.pathname == m.path ? (
                                         <span
                                             className={
                                                 "absolute mt-1 mb-1 inset-y-0 w-1 bg-blue-500" +
@@ -92,7 +92,7 @@ const SideBarSubMenuContainer: FC<SideBarSubMenuContainerProps> = ({
                                             }
                                             aria-hidden="true"
                                         ></span>
-                                    ) : null}
+                                    ) : null} */}
                                 </NavLink>
                             </li>
                         );

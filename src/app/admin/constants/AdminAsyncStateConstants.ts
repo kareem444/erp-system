@@ -5,4 +5,5 @@ export const AdminAsyncStateConstants = {
     groups: 'groups',
     stores: 'stores',
     suppliers: 'suppliers',
+    customerReports: 'customerReports',
 }

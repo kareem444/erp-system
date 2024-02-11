@@ -11,15 +11,18 @@ import useEchoState from 'src/common/DataHandler/hooks/client/useEchoState'
 import { EchoStateConstants } from 'src/common/constants/EchoStateConstants'
 import { useLocation } from 'react-router-dom'
 
-interface IAdminDetailsPageContainerProps {
+export interface IAdminDetailsPageContainerProps {
     tableContent: ITableContent
     className?: string
     onRefresh?: () => void
+    onPrint?: () => void
+    onPdf?: () => void
+    onWhatsapp?: () => void
 }
 
 export const AdminDetailsPageContainer: React.FC<
     IAdminDetailsPageContainerProps
-> = ({ tableContent, className, onRefresh }) => {
+> = ({ tableContent, className, onRefresh, onPrint, onPdf, onWhatsapp }) => {
     const { state: searchedItems, setState } = useEchoState<any[] | undefined>(EchoStateConstants.searchedItems)
     const { title } = usePageTitle()
     const { translate, isArabic } = useTranslate()
@@ -32,9 +35,12 @@ export const AdminDetailsPageContainer: React.FC<
 
     return (
         <TitleCardComponent
-            title={ isArabic ? `${translate(TRANSLATE.DETAILS)} ${title} ` : `${title} ${translate(TRANSLATE.DETAILS)}`}
+            title={isArabic ? `${translate(TRANSLATE.DETAILS)} ${title} ` : `${title} ${translate(TRANSLATE.DETAILS)}`}
             topMargin={'h-full overflow-y-hidden flex-1' + ' ' + className}
             onRefreshDataButtonClick={onRefresh}
+            onPrintButtonClick={onPrint}
+            onPdfButtonClick={onPdf}
+            onWhatsappButtonClick={onWhatsapp}
         >
             <TableComponent {...tableContent} items={searchedItems ?? tableContent.items ?? []} />
         </TitleCardComponent>

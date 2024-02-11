@@ -24,7 +24,6 @@ const InventorySelector = () => {
                 icon = {{
                     name: 'fi-rs-plus',
                     iconOnExpanded: 'fi-br-minus',
-                    position: isArabic? 'left' : 'right'
                 }}
                 data = {
                     [ { name: 'store 1', id: 1 },
@@ -41,7 +40,6 @@ const InventorySelector = () => {
                 icon = {{
                     name: 'fi-rs-plus',
                     iconOnExpanded: 'fi-br-minus',
-                    position: isArabic? 'left' : 'right'
                 }}
                 data = {
                     [  { name: 'itemGroup 1', id: 1 },

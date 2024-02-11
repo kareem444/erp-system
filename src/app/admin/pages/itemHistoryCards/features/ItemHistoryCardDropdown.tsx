@@ -48,7 +48,6 @@ const ItemHistoryCardDropdown = () => {
     icon = {{
         name: 'fi-rs-plus',
         iconOnExpanded: 'fi-br-minus',
-        position: isArabic? 'left' : 'right'
     }}
     data = {
         [ { name: 'item 1', id: 1 },

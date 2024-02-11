@@ -15,7 +15,7 @@ function TrComponent({
     return (
         <td
             className={
-                "!z-0 capitalize" + " " + className +
+                "!z-0 capitalize bg-gray-100 dark:bg-base-200" + " " + className +
                 " " +
                 (isArabic
                     ? "first-of-type:rounded-tr-md first-of-type:rounded-tl-none last-of-type:rounded-tl-md last-of-type:rounded-tr-none"
@@ -89,7 +89,7 @@ export const TableComponent: React.FC<ITableContent> = ({
 
     return (
         <div className="overflow-x-auto w-full no-scrollbar overflow-y-scroll h-full">
-            <table className="table w-full ">
+            <table className="table w-full">
                 <thead>
                     <tr className={isArabic ? "text-right" : "text-left"}>
                         {isDraggable && <TrComponent isArabic={isArabic} />}
@@ -147,7 +147,7 @@ export const TableComponent: React.FC<ITableContent> = ({
                                     );
                                 })}
                                 {buttons && (
-                                    <td className={"sticky !z-1" + " " + (isArabic ? "left-0" : "right-0")}>
+                                    <td className={"sm:sticky" + " " + (isArabic ? "left-0" : "right-0")}>
                                         <div className="flex justify-end">
                                             <TableButtonsComponent {...handelButtons(l)} item={l} />
                                         </div>

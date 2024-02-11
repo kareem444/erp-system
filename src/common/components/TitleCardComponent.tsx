@@ -3,23 +3,29 @@ import SubtitleComponent from "./SubtitleComponent";
 import ArrowPathIcon from "@heroicons/react/24/outline/ArrowPathIcon";
 import { useTranslate } from "../hooks/useTranslate";
 import { TRANSLATE } from "../constants/translateConstants";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faFilePdf } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PrinterIcon } from "@heroicons/react/24/outline";
 
 interface TitleCardProps {
   title: string;
   children: React.ReactNode;
   topMargin?: string;
-  TopSideButtons?: React.ReactNode;
-  enableRefreshDataButton?: boolean;
   onRefreshDataButtonClick?: () => void;
+  onPrintButtonClick?: () => void;
+  onPdfButtonClick?: () => void;
+  onWhatsappButtonClick?: () => void;
 }
 
 const TitleCardComponent: FC<TitleCardProps> = ({
   title,
   children,
   topMargin,
-  TopSideButtons,
-  enableRefreshDataButton = true,
   onRefreshDataButtonClick,
+  onPrintButtonClick,
+  onPdfButtonClick,
+  onWhatsappButtonClick,
 }) => {
   const { translate } = useTranslate();
   return (
@@ -37,8 +43,40 @@ const TitleCardComponent: FC<TitleCardProps> = ({
 
         <div className="flex items-center gap-2">
           <>
-            {!!TopSideButtons && TopSideButtons}
-            {enableRefreshDataButton && (
+            {
+              !!onWhatsappButtonClick && (
+                <button
+                  className="btn btn-square btn-ghost"
+                  onClick={onWhatsappButtonClick}
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} className="text-3xl" />
+                </button>
+              )
+            }
+
+            {
+              !!onPdfButtonClick && (
+                <button
+                  className="btn btn-square btn-ghost"
+                  onClick={onPdfButtonClick}
+                >
+                  <FontAwesomeIcon icon={faFilePdf} className="text-2xl" />
+                </button>
+              )
+            }
+
+            {
+              !!onPrintButtonClick && (
+                <button
+                  className="btn btn-square btn-ghost"
+                  onClick={onPrintButtonClick}
+                >
+                  <PrinterIcon className="w-8 h-10" />
+                </button>
+              )
+            }
+
+            {!!onRefreshDataButtonClick && (
               <button
                 className="btn btn-ghost border border-gray-400 btn-sm normal-case flex justify-between gap-2 hover:bg-blue-700 hover:text-white"
                 onClick={onRefreshDataButtonClick}
@@ -54,8 +92,6 @@ const TitleCardComponent: FC<TitleCardProps> = ({
       </SubtitleComponent>
 
       <div className="divider my-1 sm:my-2"></div>
-
-      {/** Card Body */}
       <div className="h-full w-full pb-6 bg-base-100">{children}</div>
     </div>
   );

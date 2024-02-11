@@ -4,5 +4,6 @@ export const EndPointsConstants = {
     Unit: 'Itemunit',
     ItemGroup: 'itemgroup',
     Store: 'stocks', 
-    Supplier: 'supplier'
+    Supplier: 'supplier',
+    CustomerReports: 'customerReports',
 }

@@ -2,8 +2,7 @@ import { FC } from "react";
 import ErrorComponent from "src/common/components/ErrorComponent";
 import LoadingSpinComponent from "src/common/components/LoadingSpinComponent";
 import NoDataAvailableComponent from "src/common/components/NoDataAvailableComponent";
-import { AdminDetailsPageContainer } from "./AdminDetailsPageContainer";
-import { ITableContent } from "src/common/components/TableComponent";
+import { AdminDetailsPageContainer, IAdminDetailsPageContainerProps } from "./AdminDetailsPageContainer";
 
 const Wrapper = ({ children }: { children: JSX.Element }) => {
     return (
@@ -13,12 +12,10 @@ const Wrapper = ({ children }: { children: JSX.Element }) => {
     );
 };
 
-export interface IAdminDetailsStatusContainerProps {
+export interface IAdminDetailsStatusContainerProps extends Omit<IAdminDetailsPageContainerProps, "className"> {
     isData?: boolean;
     isLoading?: boolean;
     isError?: boolean;
-    tableContent: ITableContent;
-    onRefresh?: () => void;
 }
 
 const AdminDetailsStatusContainer: FC<IAdminDetailsStatusContainerProps> = ({
@@ -27,6 +24,9 @@ const AdminDetailsStatusContainer: FC<IAdminDetailsStatusContainerProps> = ({
     isError,
     tableContent,
     onRefresh,
+    onPdf,
+    onPrint,
+    onWhatsapp
 }) => {
     if (isError) {
         return (
@@ -56,6 +56,9 @@ const AdminDetailsStatusContainer: FC<IAdminDetailsStatusContainerProps> = ({
         <AdminDetailsPageContainer
             tableContent={tableContent}
             onRefresh={onRefresh}
+            onPdf={onPdf}
+            onPrint={onPrint}
+            onWhatsapp={onWhatsapp}
         />
     );
 };
