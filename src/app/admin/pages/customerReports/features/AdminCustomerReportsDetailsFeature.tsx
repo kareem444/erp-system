@@ -1,15 +1,15 @@
 import AdminDetailsStatusContainer from "src/app/admin/containers/AdminDetailsStatusContainer";
 import AdminGetCustomerReportsStructure from "../structures/AdminGetCustomerReportsStructure";
-import Invoice from "src/common/pdf/invoice";
+import AdminCustomerReport from "../report/AdminCustomerReport";
 
 const AdminCustomerReportsDetailsFeature = () => {
-    const { ref , ...props } = AdminGetCustomerReportsStructure();
+    const { ref, ...props } = AdminGetCustomerReportsStructure();
+
     return (
         <>
-        <div style={{display:'none'}}>
-
-            <Invoice ref={ref} />
-        </div>
+            <div className="hidden">
+                <AdminCustomerReport ref={ref} />
+            </div>
             <AdminDetailsStatusContainer {...props} />
         </>
     );

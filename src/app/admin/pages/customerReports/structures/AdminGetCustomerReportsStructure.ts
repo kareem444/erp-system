@@ -4,15 +4,18 @@ import useAsyncState from "src/common/DataHandler/hooks/server/useAsyncState";
 import { ITableContent } from "src/common/components/TableComponent";
 import { AsyncStateConstants } from "src/common/constants/AsyncStateConstants";
 import { AdminCustomerReportTableHeaderConstants } from "../constants/AdminCustomerReportTableConstants";
-import { useReactToPrint } from 'react-to-print';
+import { useReactToPrint } from "react-to-print";
 import { Ref, useRef } from "react";
 
-const AdminGetCustomerReportsStructure = (): IAdminDetailsStatusContainerProps & {ref: Ref<HTMLDivElement>} => {
-    const { state } = useAsyncState<IAdminCustomerReportModel[]>(AsyncStateConstants.customerReports)
+const AdminGetCustomerReportsStructure = (): IAdminDetailsStatusContainerProps & { ref: Ref<HTMLDivElement> } => {
+    const { state } = useAsyncState<IAdminCustomerReportModel[]>(AsyncStateConstants.customerReports);
+
     const componentRef = useRef<HTMLDivElement>(null);
+
     const handlePrint = useReactToPrint({
-      content: () => componentRef.current,
+        content: () => componentRef.current,
     });
+
     const tableContent: ITableContent = {
         header: AdminCustomerReportTableHeaderConstants,
         items: state?.data || [],
@@ -35,7 +38,7 @@ const AdminGetCustomerReportsStructure = (): IAdminDetailsStatusContainerProps &
         onPdf: () => console.log("onPdf"),
         onPrint: () => handlePrint(),
         onWhatsapp: () => console.log("onWhatsapp"),
-    }
+    };
 };
 
 export default AdminGetCustomerReportsStructure;

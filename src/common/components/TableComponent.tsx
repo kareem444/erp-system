@@ -3,7 +3,7 @@ import { TableButtonsComponent } from "./IconsButtonsComponent";
 import DraggableItemComponent from "./DraggableItemComponent";
 import { useTranslate } from "../hooks/useTranslate";
 
-function TrComponent({
+function TdComponent({
     isArabic,
     children,
     className,
@@ -92,15 +92,15 @@ export const TableComponent: React.FC<ITableContent> = ({
             <table className="table w-full">
                 <thead>
                     <tr className={isArabic ? "text-right" : "text-left"}>
-                        {isDraggable && <TrComponent isArabic={isArabic} />}
+                        {isDraggable && <TdComponent isArabic={isArabic} />}
                         {header.map((h, k) => {
                             return (
-                                <TrComponent key={k} isArabic={isArabic}>
+                                <TdComponent key={k} isArabic={isArabic}>
                                     {translate(h)}
-                                </TrComponent>
+                                </TdComponent>
                             );
                         })}
-                        {buttons && <TrComponent isArabic={isArabic} className={"sticky !z-1" + " " + (isArabic ? "left-0" : "right-0")} />}
+                        {buttons && <TdComponent isArabic={isArabic} className={"sticky !z-1" + " " + (isArabic ? "left-0" : "right-0")} />}
                     </tr>
                 </thead>
                 <tbody>
