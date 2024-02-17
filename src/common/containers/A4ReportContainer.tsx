@@ -1,5 +1,5 @@
 import { Ref, forwardRef } from "react";
-import logo from "../../../common/assets/images/logo.png";
+import logo from "../../common/assets/images/logo.png";
 import moment from "moment";
 
 interface AdminReportContainerProps {
