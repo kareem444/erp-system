@@ -1,5 +1,5 @@
 import { ReactNode, Ref, forwardRef } from "react";
-import AdminReportContainer from "src/app/admin/containers/AdminReportContainer";
+import A4ReportContainer from "src/common/containers/A4ReportContainer";
 import { useTranslate } from "src/common/hooks/useTranslate";
 
 function TdComponent({
@@ -10,7 +10,11 @@ function TdComponent({
     className?: string;
 }) {
     return (
-        <td className={"normal-case text-center border" + " " + className}>
+        <td
+            className={
+                "normal-case text-center border border-black" + " " + className
+            }
+        >
             {children}
         </td>
     );
@@ -31,7 +35,7 @@ const AdminTableReportComponent = forwardRef(
         const { translate } = useTranslate();
 
         return (
-            <AdminReportContainer ref={ref}>
+            <A4ReportContainer ref={ref}>
                 {children}
                 {!!data && data.length > 0 && (
                     <div className="overflow-x-auto mt-5">
@@ -39,9 +43,7 @@ const AdminTableReportComponent = forwardRef(
                             <thead>
                                 <tr>
                                     {headers?.map((key: string, index) => (
-                                        <TdComponent key={index}>
-                                            {translate(key)}
-                                        </TdComponent>
+                                        <TdComponent key={index}>{translate(key)}</TdComponent>
                                     ))}
                                 </tr>
                             </thead>
@@ -62,7 +64,7 @@ const AdminTableReportComponent = forwardRef(
                         </table>
                     </div>
                 )}
-            </AdminReportContainer>
+            </A4ReportContainer>
         );
     }
 );
